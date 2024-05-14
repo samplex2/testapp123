@@ -31,7 +31,7 @@ public class scholarshippage extends javax.swing.JFrame {
    public void displayDatas(){
     try{
         dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT scholarship_id,scholarship_name,scholarship_type, FROM tbl_scholarship");
+        ResultSet rs = dbc.getData("SELECT scholarship_id,scholarship_name,scholarship_status,scholarship_type FROM tbl_scholarship");
         scholarshiptable.setModel(DbUtils.resultSetToTableModel(rs));
         rs.close();
     } catch(SQLException ex){
