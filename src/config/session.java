@@ -18,11 +18,17 @@ public class session {
     private String username;
     private String type;
     private String status;
+    private String scholarshipid;
+    private String scholarshipname;
+    private String scholarshiptype;
     
     private session(){
         
         
     }
+    
+
+  
 
     public static synchronized  session getInstance() {
         if(instance==null ){

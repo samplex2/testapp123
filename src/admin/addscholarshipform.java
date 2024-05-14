@@ -1,4 +1,4 @@
-/*
+        /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -29,12 +29,12 @@ import static testapp2.registrationForm.usname;
  *
  * @author USER
  */
-public class createuserform extends javax.swing.JFrame {
+public class addscholarshipform extends javax.swing.JFrame {
 
     /**
      * Creates new form createuserform
      */
-    public createuserform() {
+    public addscholarshipform() {
         initComponents();
     }
     
@@ -157,7 +157,7 @@ public class createuserform extends javax.swing.JFrame {
     public boolean updateCheck(){
     dbConnector dbc = new dbConnector();
     try{
-        String query = "SELECT * FROM tbl_user WHERE (u_username = '"+username.getText()+"' OR u_email = '"+email.getText()+"') AND u_id !='"+uid.getText()+"'";
+        String query = "SELECT * FROM tbl_user WHERE (u_username = '"+username.getText()+"' OR u_email = '"+email.getText()+"') AND u_id !='"+suid.getText()+"'";
 
             ResultSet resultSet =dbc.getData(query);
         if(resultSet.next()){
@@ -199,7 +199,7 @@ public class createuserform extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         us = new javax.swing.JComboBox<>();
-        uid = new javax.swing.JTextField();
+        suid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
@@ -252,13 +252,13 @@ public class createuserform extends javax.swing.JFrame {
         });
         jPanel1.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 125, -1));
 
-        uid.setEnabled(false);
-        jPanel1.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 125, -1));
+        suid.setEnabled(false);
+        jPanel1.add(suid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 125, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel8.setText("UserID :");
+        jLabel8.setText("Scholarship ID : ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
         jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 125, -1));
 
@@ -301,7 +301,7 @@ public class createuserform extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(204, 204, 0));
         jLabel2.setText("Lastname :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 20));
-        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 125, -1));
+        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 125, -1));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -458,7 +458,7 @@ public class createuserform extends javax.swing.JFrame {
         dbConnector dbc= new dbConnector();
        dbc.updateData("UPDATE tbl_user SET u_fname= '"+fname.getText()+"', u_lname='"+lname.getText()+"', u_email='"+email.getText()+"',"
                + " u_username='"+username.getText()+"',u_password='"+password.getText()+"', u_type='"+usertype.getSelectedItem()+"',"
-               + " u_status= '"+us.getSelectedItem()+"',u_image='"+destination+"' WHERE u_id= '"+uid.getText()+"'");
+               + " u_status= '"+us.getSelectedItem()+"',u_image='"+destination+"' WHERE u_id= '"+suid.getText()+"'");
    
                if(destination.isEmpty()){
                    File existingFile = new File (oldpath);
@@ -477,7 +477,7 @@ public class createuserform extends javax.swing.JFrame {
     }//GEN-LAST:event_UPDATEActionPerformed
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
-      userform uf= new userform();
+        scholarshippage  uf= new scholarshippage();
       uf.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_CANCELActionPerformed
@@ -536,20 +536,23 @@ public class createuserform extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(createuserform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(createuserform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(createuserform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(createuserform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createuserform().setVisible(true);
+                new addscholarshipform().setVisible(true);
             }
         });
     }
@@ -578,7 +581,7 @@ public class createuserform extends javax.swing.JFrame {
     public javax.swing.JTextField password;
     public javax.swing.JButton remove;
     public javax.swing.JButton select;
-    public javax.swing.JTextField uid;
+    public javax.swing.JTextField suid;
     public javax.swing.JComboBox<String> us;
     public javax.swing.JTextField username;
     public javax.swing.JComboBox<String> usertype;
