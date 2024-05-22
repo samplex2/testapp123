@@ -271,10 +271,6 @@ public boolean duplicateCheck(){
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void usertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usertypeActionPerformed
-
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
       userDashboard ud = new userDashboard();
         ud.setVisible(true);
@@ -318,6 +314,10 @@ public boolean duplicateCheck(){
         ud.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void usertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usertypeActionPerformed
 
     /**
      * @param args the command line arguments

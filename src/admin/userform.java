@@ -33,7 +33,7 @@ public class userform extends javax.swing.JFrame {
     public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT u_id,u_fname,u_lname,u_email,u_type,u_status FROM tbl_user");
+            ResultSet rs = dbc.getData("SELECT u_id,u_fname,u_lname,u_email,u_type,u_status,u_image FROM tbl_user");
           usertable.setModel(DbUtils.resultSetToTableModel(rs));
              rs.close();
         }catch(SQLException ex){
@@ -170,7 +170,7 @@ public class userform extends javax.swing.JFrame {
         jLabel9.setBounds(50, 10, 70, 17);
 
         jPanel1.add(p_delete);
-        p_delete.setBounds(190, 60, 170, 40);
+        p_delete.setBounds(190, 90, 170, 40);
 
         userstable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,7 +194,7 @@ public class userform extends javax.swing.JFrame {
         userstable.setViewportView(usertable);
 
         jPanel1.add(userstable);
-        userstable.setBounds(10, 190, 910, 221);
+        userstable.setBounds(10, 180, 730, 221);
 
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton1.setText("BACK");
@@ -204,7 +204,7 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(823, 420, 90, 27);
+        jButton1.setBounds(680, 420, 90, 27);
 
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton2.setText("PRINT");
@@ -214,17 +214,19 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(723, 420, 90, 27);
+        jButton2.setBounds(570, 420, 90, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -448,6 +450,6 @@ int rowIndex = usertable.getSelectedRow();
     private javax.swing.JPanel p_edit;
     public javax.swing.JLabel userid;
     private javax.swing.JScrollPane userstable;
-    private javax.swing.JTable usertable;
+    public javax.swing.JTable usertable;
     // End of variables declaration//GEN-END:variables
 }

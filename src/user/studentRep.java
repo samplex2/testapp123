@@ -64,6 +64,7 @@ public class studentRep extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         rep = new javax.swing.JTable();
         print = new javax.swing.JButton();
+        print1 = new javax.swing.JButton();
 
         jPanel1.setLayout(null);
 
@@ -78,7 +79,8 @@ public class studentRep extends javax.swing.JInternalFrame {
         jScrollPane2.setBounds(40, 122, 560, 380);
 
         print.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        print.setText("Table");
+        print.setForeground(new java.awt.Color(255, 0, 0));
+        print.setText("Cancel");
         print.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 printActionPerformed(evt);
@@ -86,6 +88,16 @@ public class studentRep extends javax.swing.JInternalFrame {
         });
         jPanel1.add(print);
         print.setBounds(480, 80, 110, 30);
+
+        print1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        print1.setText("Print");
+        print1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(print1);
+        print1.setBounds(360, 80, 110, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,11 +129,16 @@ public class studentRep extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_printActionPerformed
 
+    private void print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_print1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton print;
+    private javax.swing.JButton print1;
     public javax.swing.JTable rep;
     // End of variables declaration//GEN-END:variables
 }

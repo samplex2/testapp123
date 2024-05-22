@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2024 at 09:16 AM
+-- Generation Time: May 22, 2024 at 04:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sampledbs`
+-- Database: `sample`
 --
 
 -- --------------------------------------------------------
@@ -37,22 +37,37 @@ CREATE TABLE `tbl_application` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_report`
+--
+
+CREATE TABLE `tbl_report` (
+  `report_id` int(20) NOT NULL,
+  `student_id` int(20) NOT NULL,
+  `scholarship_id` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_scholarship`
 --
 
 CREATE TABLE `tbl_scholarship` (
   `scholarship_id` int(20) NOT NULL,
   `scholarship_name` varchar(50) NOT NULL,
-  `scholarship_status` varchar(50) NOT NULL,
-  `scholarship_type` varchar(50) NOT NULL
+  `scholarship_type` varchar(50) NOT NULL,
+  `scholarship_description` varchar(200) NOT NULL,
+  `scholarship_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_scholarship`
 --
 
-INSERT INTO `tbl_scholarship` (`scholarship_id`, `scholarship_name`, `scholarship_status`, `scholarship_type`) VALUES
-(1001, 'Unifast', 'Pending', 'Academic');
+INSERT INTO `tbl_scholarship` (`scholarship_id`, `scholarship_name`, `scholarship_type`, `scholarship_description`, `scholarship_status`) VALUES
+(1001, 'Unifast', 'Academic', '0', ''),
+(1002, 'CHED', 'Academic', 'awts', 'Pending'),
+(1003, 'CHED', 'Goverment', 'aray audrey', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -66,15 +81,16 @@ CREATE TABLE `tbl_student` (
   `student_email` varchar(50) NOT NULL,
   `student_gender` varchar(50) NOT NULL,
   `student_course` varchar(50) NOT NULL,
-  `student_contact` int(20) NOT NULL
+  `student_contact` int(20) NOT NULL,
+  `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_student`
 --
 
-INSERT INTO `tbl_student` (`student_id`, `student_name`, `student_email`, `student_gender`, `student_course`, `student_contact`) VALUES
-(1001, 'Paul', 'Jp@gmail.com', 'Male', 'BSIT', 912345678);
+INSERT INTO `tbl_student` (`student_id`, `student_name`, `student_email`, `student_gender`, `student_course`, `student_contact`, `image`) VALUES
+(1001, 'Paul', 'Jp@gmail.com', 'Male', 'BSIT', 912345678, '0');
 
 -- --------------------------------------------------------
 
@@ -90,19 +106,20 @@ CREATE TABLE `tbl_user` (
   `u_username` varchar(50) NOT NULL,
   `u_password` varchar(50) NOT NULL,
   `u_type` varchar(50) NOT NULL,
-  `u_status` varchar(50) NOT NULL
+  `u_status` varchar(50) NOT NULL,
+  `u_image` varchar(600) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_username`, `u_password`, `u_type`, `u_status`) VALUES
-(1001, 'john paul', 'resane', 'resane01@gmail.com', 'johnpaul123', 'resane123', 'Admin', 'Active'),
-(1003, 'john', 'resane', 'jp@gmail.com', 'jp123', '12345678', 'Admin', 'Pending'),
-(1004, 'test', 'test', 'test', 'test', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Admin', 'Active'),
-(1005, 'test', 'test', 'teest', 'teest', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Student', 'Active'),
-(1006, 'pol', 'pol', 'pol', 'pol', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Admin', 'Active');
+INSERT INTO `tbl_user` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_username`, `u_password`, `u_type`, `u_status`, `u_image`) VALUES
+(1001, 'john paul', 'resane', 'resane01@gmail.com', 'johnpaul123', 'resane123', 'Admin', 'Active', 'src/userimages/Screenshot 2024-05-07 101221.png'),
+(1003, 'john', 'resane', 'jp@gmail.com', 'jp123', '12345678', 'Admin', 'Pending', ''),
+(1004, 'test', 'test', 'test', 'test', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Admin', 'Active', ''),
+(1005, 'test', 'test', 'teest', 'teest', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Student', 'Active', ''),
+(1006, 'pol', 'pol', 'pol', 'pol', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Admin', 'Active', 'src/userimages/Screenshot 2024-05-06 174227.png');
 
 --
 -- Indexes for dumped tables
@@ -115,6 +132,12 @@ ALTER TABLE `tbl_application`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `scholarship_id` (`scholarship_id`),
   ADD KEY `stid` (`student_id`);
+
+--
+-- Indexes for table `tbl_report`
+--
+ALTER TABLE `tbl_report`
+  ADD PRIMARY KEY (`report_id`);
 
 --
 -- Indexes for table `tbl_scholarship`
@@ -145,10 +168,16 @@ ALTER TABLE `tbl_application`
   MODIFY `application_id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_report`
+--
+ALTER TABLE `tbl_report`
+  MODIFY `report_id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_scholarship`
 --
 ALTER TABLE `tbl_scholarship`
-  MODIFY `scholarship_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+  MODIFY `scholarship_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
 
 --
 -- AUTO_INCREMENT for table `tbl_student`

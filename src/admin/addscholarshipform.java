@@ -5,6 +5,7 @@
  */
 package admin;
 
+import static admin.updateScholarForm.ads;
 import config.dbConnector;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -124,65 +125,8 @@ public class addscholarshipform extends javax.swing.JFrame {
     
     
     
-    
-    
-    public boolean duplicateCheck(){
-    dbConnector dbc = new dbConnector();
-    try{
-       String query = "SELECT * FROM tbl_user WHERE u_username = '" + username.getText() + "' OR u_email = '" + email.getText() + "'";
 
-            ResultSet resultSet =dbc.getData(query);
-        if(resultSet.next()){
-           mail = resultSet.getString("u_email");
-            System.out.println(""+mail);
-            if(mail.equals(email.getText())){
-                JOptionPane.showMessageDialog(null,"Email is Already Used!");
-              email.setText("");
-            }
-            usname = resultSet.getString("u_username");
-            if(usname.equals(username.getText())){
-                JOptionPane.showMessageDialog(null,"Username is Already Used!");
-              username.setText("");
-            } 
-           usname = resultSet.getString("u_username");
-             return true;
-        }else{
-            return false;
-        }
-    }catch(SQLException ex){
-        System.out.println(""+ex);
-        return false;
-    }
-}
-    public boolean updateCheck(){
-    dbConnector dbc = new dbConnector();
-    try{
-        String query = "SELECT * FROM tbl_user WHERE (u_username = '"+username.getText()+"' OR u_email = '"+email.getText()+"') AND u_id !='"+suid.getText()+"'";
-
-            ResultSet resultSet =dbc.getData(query);
-        if(resultSet.next()){
-           mail = resultSet.getString("u_email");
-            System.out.println(""+mail);
-            if(mail.equals(email.getText())){
-                JOptionPane.showMessageDialog(null,"Email is Already Used!");
-              email.setText("");
-            }
-            usname = resultSet.getString("u_username");
-            if(usname.equals(username.getText())){
-                JOptionPane.showMessageDialog(null,"Username is Already Used!");
-              username.setText("");
-            } 
-           usname = resultSet.getString("u_username");
-             return true;
-        }else{
-            return false;
-        }
-    }catch(SQLException ex){
-        System.out.println(""+ex);
-        return false;
-    }
-}
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -194,198 +138,105 @@ public class addscholarshipform extends javax.swing.JFrame {
 
         jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        fname = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        us = new javax.swing.JComboBox<>();
-        suid = new javax.swing.JTextField();
+        scholarshiptype = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        usertype = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        scholarshipname = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        lname = new javax.swing.JTextField();
+        sdescription = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        REFRESH = new javax.swing.JButton();
         CANCEL = new javax.swing.JButton();
-        UPDATE = new javax.swing.JButton();
         ADD = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        image = new javax.swing.JLabel();
-        remove = new javax.swing.JButton();
-        select = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        suid = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jLabel9.setText("jLabel9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 125, -1));
-
-        password.setEnabled(false);
-        jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 125, -1));
-
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel7.setText("Userstatus :");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, 20));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel3.setText("Email :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, 20));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Scholarship Description:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, -1, 20));
 
-        us.setForeground(new java.awt.Color(204, 204, 0));
-        us.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending", " " }));
-        us.addActionListener(new java.awt.event.ActionListener() {
+        scholarshiptype.setForeground(new java.awt.Color(51, 51, 51));
+        scholarshiptype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Academic", "Goverment", " " }));
+        scholarshiptype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usActionPerformed(evt);
+                scholarshiptypeActionPerformed(evt);
             }
         });
-        jPanel1.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 125, -1));
-
-        suid.setEnabled(false);
-        jPanel1.add(suid, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 125, -1));
+        jPanel1.add(scholarshiptype, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 140, 30));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Scholarship ID : ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 20));
-        jPanel1.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 125, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 20));
 
-        email.addActionListener(new java.awt.event.ActionListener() {
+        scholarshipname.setForeground(new java.awt.Color(51, 51, 51));
+        scholarshipname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CHED", "UNIFAST", " " }));
+        scholarshipname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                scholarshipnameActionPerformed(evt);
             }
         });
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 125, -1));
-
-        usertype.setForeground(new java.awt.Color(204, 204, 0));
-        usertype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Student" }));
-        usertype.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usertypeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(usertype, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 125, -1));
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel6.setText("Usertype :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 20));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel5.setText("Password :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 20));
-
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel4.setText("Username :");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 20));
+        jPanel1.add(scholarshipname, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 140, 30));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel2.setText("Lastname :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 20));
-        jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 125, -1));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Scholarsip Type:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, 20));
+        jPanel1.add(sdescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 140, 70));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 0));
-        jLabel1.setText("Firstname :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 20));
-
-        REFRESH.setBackground(new java.awt.Color(255, 255, 255));
-        REFRESH.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        REFRESH.setForeground(new java.awt.Color(204, 204, 0));
-        REFRESH.setText("Refresh");
-        REFRESH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                REFRESHActionPerformed(evt);
-            }
-        });
-        jPanel1.add(REFRESH, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 90, -1));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Scholarship Name:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, 20));
 
         CANCEL.setBackground(new java.awt.Color(255, 255, 255));
         CANCEL.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        CANCEL.setForeground(new java.awt.Color(204, 204, 0));
+        CANCEL.setForeground(new java.awt.Color(51, 51, 51));
         CANCEL.setText("Cancel");
         CANCEL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CANCELActionPerformed(evt);
             }
         });
-        jPanel1.add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 90, -1));
-
-        UPDATE.setBackground(new java.awt.Color(255, 255, 255));
-        UPDATE.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        UPDATE.setForeground(new java.awt.Color(204, 204, 0));
-        UPDATE.setText("Update");
-        UPDATE.setEnabled(false);
-        UPDATE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UPDATEActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UPDATE, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 90, -1));
+        jPanel1.add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 90, -1));
 
         ADD.setBackground(new java.awt.Color(255, 255, 255));
         ADD.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        ADD.setForeground(new java.awt.Color(204, 204, 0));
+        ADD.setForeground(new java.awt.Color(51, 51, 51));
         ADD.setText("Add");
         ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ADDActionPerformed(evt);
             }
         });
-        jPanel1.add(ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 90, -1));
+        jPanel1.add(ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 90, -1));
 
-        jPanel2.setLayout(null);
-        jPanel2.add(image);
-        image.setBounds(4, 14, 170, 210);
+        suid.setEnabled(false);
+        jPanel1.add(suid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 140, 30));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 51, 180, 240));
-
-        remove.setForeground(new java.awt.Color(204, 204, 0));
-        remove.setText("REMOVE");
-        remove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, -1, -1));
-
-        select.setForeground(new java.awt.Color(204, 204, 0));
-        select.setText("SELECT");
-        select.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectMouseClicked(evt);
-            }
-        });
-        jPanel1.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 880, 560));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scclogo.png"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 280, 430));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,128 +247,37 @@ public class addscholarshipform extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
         
-          
-        if(fname.getText().isEmpty()|| lname.getText().isEmpty()|| email.getText().isEmpty()
-            || username.getText().isEmpty()|| password.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"All Fields are Required!");
-        }else if(password.getText().length()<8){
-            password.setText("");
-            JOptionPane.showMessageDialog(null,"Password character should be 8 above!");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist");
-       
-        }else{
-            dbConnector dbc = new dbConnector();
-            if(dbc.insertData("INSERT INTO tbl_user(u_fname,u_lname,u_email,u_username,u_password,u_type,u_status,u_image)"
-                + "VALUES('"+fname.getText()+"','"+lname.getText()+"','"+email.getText()+"','"+username.getText()+"',"
-               + "'"+password.getText()+"','"+usertype.getSelectedItem()+"','"+us.getSelectedItem()+"','"+destination+"')"))
-        {
-            try{
-            Files.copy(selectedFile.toPath(),new File(destination).toPath(),StandardCopyOption.REPLACE_EXISTING);
-            JOptionPane.showMessageDialog(null,"Registration Success!");
-            userform uf= new userform();
-            uf.setVisible(true);
-            this.dispose(); 
-        }catch(IOException ex){
-                System.out.println("Insert Image Error "+ex);
-                }
-        }else{
-     
-            JOptionPane.showMessageDialog(null,"Connection Error!");
-                }
+          dbConnector dbc = new dbConnector();
+        if (sdescription.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, " All Fields Require!");
+        } else {
+            dbc.insertData("INSERT INTO tbl_scholarship (scholarship_name,scholarship_type,scholarship_description,scholarship_status) " + "VALUES ("
+                    + "'" + scholarshipname.getSelectedItem() + "',"
+                    + " '" + scholarshiptype.getSelectedItem() + "',"
+                    + " '" + sdescription.getText() + "',"
+                    + "'" + "Pending')");
+            scholarshippage db = new scholarshippage();
+            db.setVisible(true);
+            this.hide();
+            db.ads = ads ;
         }
     }//GEN-LAST:event_ADDActionPerformed
 
-    private void usertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertypeActionPerformed
+    private void scholarshipnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholarshipnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usertypeActionPerformed
+    }//GEN-LAST:event_scholarshipnameActionPerformed
 
-    private void usActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usActionPerformed
+    private void scholarshiptypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholarshiptypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usActionPerformed
-
-    private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
-       if(fname.getText().isEmpty()|| lname.getText().isEmpty()|| email.getText().isEmpty()
-            || username.getText().isEmpty()|| password.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"All Fields are Required!");
-        }else if(password.getText().length()<8){
-            password.setText("");
-            JOptionPane.showMessageDialog(null,"Password character should be 8 above!");
-        }else if(updateCheck()){
-            System.out.println("Duplicate Exist");
-       
-        }else{
-        
-        
-        dbConnector dbc= new dbConnector();
-       dbc.updateData("UPDATE tbl_user SET u_fname= '"+fname.getText()+"', u_lname='"+lname.getText()+"', u_email='"+email.getText()+"',"
-               + " u_username='"+username.getText()+"',u_password='"+password.getText()+"', u_type='"+usertype.getSelectedItem()+"',"
-               + " u_status= '"+us.getSelectedItem()+"',u_image='"+destination+"' WHERE u_id= '"+suid.getText()+"'");
-   
-               if(destination.isEmpty()){
-                   File existingFile = new File (oldpath);
-                   if(existingFile.exists   ()){
-                       existingFile.delete();
-                   }
-               }else{
-                   if(!(oldpath.equals(path))){
-                       imageUpdater(oldpath,path);
-                   }
-               }
-               userform uf= new userform();
-               uf.setVisible(true);
-               this.dispose(); 
-        }
-    }//GEN-LAST:event_UPDATEActionPerformed
+    }//GEN-LAST:event_scholarshiptypeActionPerformed
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
         scholarshippage  uf= new scholarshippage();
       uf.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_CANCELActionPerformed
-
-    private void REFRESHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REFRESHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_REFRESHActionPerformed
-
-    private void selectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectMouseClicked
-     JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    try {
-                        selectedFile = fileChooser.getSelectedFile();
-                        destination = "src/userimages/" + selectedFile.getName();
-                        path  = selectedFile.getAbsolutePath();
-                        
-                        
-                        if(FileExistenceChecker(path) == 1){
-                          JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
-                            destination = "";
-                            path="";
-                        }else{
-                            image.setIcon(ResizeImage(path, null, image));
-                            select.setEnabled(false);
-                            remove.setEnabled(true);   
-                        }
-                    } catch (Exception ex) {
-                        System.out.println("File Error!");
-                    }
-                }
-    }//GEN-LAST:event_selectMouseClicked
-
-    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
-     remove.setEnabled(false);
-     select.setEnabled(true);
-     image.setIcon(null);
-     destination ="";
-     path =  "";
-    }//GEN-LAST:event_removeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,31 +320,19 @@ public class addscholarshipform extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton ADD;
     public javax.swing.JButton CANCEL;
-    public javax.swing.JButton REFRESH;
-    public javax.swing.JButton UPDATE;
-    public javax.swing.JTextField email;
-    public javax.swing.JTextField fname;
-    public javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    public javax.swing.JTextField lname;
-    public javax.swing.JTextField password;
-    public javax.swing.JButton remove;
-    public javax.swing.JButton select;
+    public javax.swing.JComboBox<String> scholarshipname;
+    public javax.swing.JComboBox<String> scholarshiptype;
+    public javax.swing.JTextField sdescription;
     public javax.swing.JTextField suid;
-    public javax.swing.JComboBox<String> us;
-    public javax.swing.JTextField username;
-    public javax.swing.JComboBox<String> usertype;
     // End of variables declaration//GEN-END:variables
 
     private void displayData() {

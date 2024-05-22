@@ -10,6 +10,9 @@ import config.session;
 import javax.swing.JOptionPane;
 import testapp2.loginform;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +21,8 @@ import java.awt.Color;
 public class admindashboard extends javax.swing.JFrame {
 
     String nam;
+    String ads;
+    String uname;
 
     /**
      * Creates new form admindashboard
@@ -55,7 +60,9 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        p_manage5 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -220,11 +227,11 @@ public class admindashboard extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage3);
-        p_manage3.setBounds(290, 240, 170, 160);
+        p_manage3.setBounds(400, 230, 170, 170);
 
         p_manage4.setBackground(new java.awt.Color(204, 255, 255));
         p_manage4.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,10 +279,49 @@ public class admindashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(30, 0, 100, 100);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(0, 0, 750, 440);
+        p_manage5.setBackground(new java.awt.Color(204, 255, 255));
+        p_manage5.setForeground(new java.awt.Color(255, 255, 255));
+        p_manage5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_manage5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_manage5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_manage5MouseExited(evt);
+            }
+        });
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-medical-history-96.png"))); // NOI18N
+        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setText("Manage User");
+
+        javax.swing.GroupLayout p_manage5Layout = new javax.swing.GroupLayout(p_manage5);
+        p_manage5.setLayout(p_manage5Layout);
+        p_manage5Layout.setHorizontalGroup(
+            p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_manage5Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel12))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        p_manage5Layout.setVerticalGroup(
+            p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_manage5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(p_manage5);
+        p_manage5.setBounds(180, 230, 170, 170);
 
         jPanel4.add(jPanel1);
         jPanel1.setBounds(0, 120, 750, 440);
@@ -314,8 +360,9 @@ public class admindashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_p_manage2MouseEntered
 
     private void p_manage2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage2MouseClicked
-        userform usf = new userform();
-        usf.setVisible(true);
+       studentPage sp = null;
+       sp = new studentPage();
+        sp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_p_manage2MouseClicked
 
@@ -361,6 +408,20 @@ loginform lg = new loginform();
         this.dispose();
     }//GEN-LAST:event_p_manage3MouseClicked
 
+    private void p_manage5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseClicked
+       userform usf= new userform();
+       usf.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_p_manage5MouseClicked
+
+    private void p_manage5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_manage5MouseEntered
+
+    private void p_manage5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_manage5MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -403,11 +464,12 @@ loginform lg = new loginform();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -417,5 +479,6 @@ loginform lg = new loginform();
     private javax.swing.JPanel p_manage2;
     private javax.swing.JPanel p_manage3;
     private javax.swing.JPanel p_manage4;
+    private javax.swing.JPanel p_manage5;
     // End of variables declaration//GEN-END:variables
 }

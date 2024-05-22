@@ -61,7 +61,6 @@ public class changepass extends javax.swing.JFrame {
         acc_fname = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         iddisplay = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -177,11 +176,6 @@ public class changepass extends javax.swing.JFrame {
         iddisplay.setText("UserID");
         jPanel4.add(iddisplay);
         iddisplay.setBounds(20, 120, 70, 18);
-
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel1.setText("Change Password");
-        jPanel4.add(jLabel1);
-        jLabel1.setBounds(200, 110, 140, 20);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -335,7 +329,6 @@ userDetails udt = new userDetails();
     private javax.swing.JLabel acc_lname;
     private javax.swing.JTextField compass;
     private javax.swing.JLabel iddisplay;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

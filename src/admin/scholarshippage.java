@@ -7,17 +7,21 @@ package admin;
 
 import config.dbConnector;
 import java.awt.Color;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
+import testapp2.loginform;
 
 /**
  *
  * @author USER
  */
 public class scholarshippage extends javax.swing.JFrame {
+
+    String ads;
 
     /**
      * Creates new form userform2
@@ -31,7 +35,7 @@ public class scholarshippage extends javax.swing.JFrame {
    public void displayDatas(){
     try{
         dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT scholarship_id,scholarship_name,scholarship_status,scholarship_type FROM tbl_scholarship");
+        ResultSet rs = dbc.getData("SELECT scholarship_id,scholarship_name,scholarship_type,scholarship_description,scholarship_status FROM tbl_scholarship");
         scholarshiptable.setModel(DbUtils.resultSetToTableModel(rs));
         rs.close();
     } catch(SQLException ex){
@@ -53,7 +57,7 @@ public class scholarshippage extends javax.swing.JFrame {
         userid = new javax.swing.JLabel();
         p_add = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        p_edit = new javax.swing.JPanel();
+        update = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         p_delete = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -109,27 +113,27 @@ public class scholarshippage extends javax.swing.JFrame {
         jPanel2.add(p_add);
         p_add.setBounds(10, 60, 170, 40);
 
-        p_edit.setBackground(new java.awt.Color(255, 255, 204));
-        p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+        update.setBackground(new java.awt.Color(255, 255, 204));
+        update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                p_editMouseClicked(evt);
+                updateMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                p_editMouseEntered(evt);
+                updateMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                p_editMouseExited(evt);
+                updateMouseExited(evt);
             }
         });
-        p_edit.setLayout(null);
+        update.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("EDIT");
-        p_edit.add(jLabel3);
+        update.add(jLabel3);
         jLabel3.setBounds(50, 10, 31, 17);
 
-        jPanel2.add(p_edit);
-        p_edit.setBounds(10, 120, 170, 40);
+        jPanel2.add(update);
+        update.setBounds(10, 120, 170, 40);
 
         p_delete.setBackground(new java.awt.Color(255, 255, 204));
         p_delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,10 +226,9 @@ public class scholarshippage extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-        addscholarshipform sf = new addscholarshipform();
-        sf.setVisible(true);
-        sf.remove.setEnabled(false);
-        sf.select.setEnabled(true);
+        addscholarshipform as = new addscholarshipform();
+        as.setVisible(true);
+     
         this.dispose();
     }//GEN-LAST:event_p_addMouseClicked
 
@@ -239,42 +242,38 @@ public class scholarshippage extends javax.swing.JFrame {
         p_add.setBackground(navcolor);
     }//GEN-LAST:event_p_addMouseExited
 
-    private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
-        int rowIndex = scholarshiptable.getSelectedRow();
-
-        if(rowIndex<0){
-            JOptionPane.showMessageDialog(null,"Please Select some Item");
-        }else{
-
-            try{
-                dbConnector dbc = new dbConnector();
-                TableModel tbl = scholarshiptable.getModel();
-                ResultSet rs = dbc.getData("SELECT * FROM tbl_scholarship WHERE u_id = '"+tbl.getValueAt(rowIndex,0)+"'");
-                if(rs.next()){
-                    addscholarshipform cuf = new addscholarshipform();
-                    cuf.suid.setText(""+rs.getInt("scholarship_id"));
-                    cuf.fname.setText(""+rs.getString("scholarship_name"));
-                    cuf.us.setSelectedItem(""+rs.getString("scholarship_status"));
-                    cuf.ADD.setEnabled(false);
-                    cuf.UPDATE.setEnabled(true);
-                    cuf.setVisible(true);
-                    this.dispose();
-
-                }
-            }catch(SQLException ex){
-                System.out.println(""+ex);
-            }
+    private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
+      int rowIndex = scholarshiptable.getSelectedRow();
+        loginform lb = new loginform();
+        admindashboard ad = new admindashboard();
+       
+     
+        Connection conn;
+        String newImage = null;
+        if (rowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please Select an Item!");
+        } else {
+            TableModel model = scholarshiptable.getModel();
+            updateScholarForm usf = new updateScholarForm();
+            usf.sc_id.setText("" + model.getValueAt(rowIndex, 0));
+            usf.sc_name.setText("" + model.getValueAt(rowIndex, 1));
+            usf.sc_type.setText("" + model.getValueAt(rowIndex, 2));
+            usf.sc_des.setText("" + model.getValueAt(rowIndex, 3));
+            usf.sc_status.setSelectedItem(model.getValueAt(rowIndex, 4).toString());
+            usf.setVisible(true);
+            this.hide();
+            usf.ads = ads;
         }
 
-    }//GEN-LAST:event_p_editMouseClicked
+    }//GEN-LAST:event_updateMouseClicked
 
-    private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered
-        p_edit.setBackground(hovercolor);
-    }//GEN-LAST:event_p_editMouseEntered
+    private void updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseEntered
+        update.setBackground(hovercolor);
+    }//GEN-LAST:event_updateMouseEntered
 
-    private void p_editMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseExited
-        p_edit.setBackground(navcolor);
-    }//GEN-LAST:event_p_editMouseExited
+    private void updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseExited
+        update.setBackground(navcolor);
+    }//GEN-LAST:event_updateMouseExited
 
     private void p_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseClicked
         int rowIndex = scholarshiptable.getSelectedRow();
@@ -352,8 +351,8 @@ public class scholarshippage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_delete;
-    private javax.swing.JPanel p_edit;
     private javax.swing.JTable scholarshiptable;
+    private javax.swing.JPanel update;
     public javax.swing.JLabel userid;
     private javax.swing.JScrollPane userstable;
     // End of variables declaration//GEN-END:variables

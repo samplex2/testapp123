@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author SCC
@@ -21,7 +22,7 @@ public class dbConnector {
     private Connection connect;
      public dbConnector(){
             try{
-                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledbs", "root", "");
+                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample", "root", "");
             }catch(SQLException ex){
                     System.out.println("Can't connect to database: "+ex.getMessage());
             }
@@ -46,6 +47,8 @@ public class dbConnector {
                 System.out.println("Connection Error: "+ex);
                return false;
             }
+          
+            
         }
         public void updateData(String sql){
             try{
@@ -68,6 +71,10 @@ public class dbConnector {
     }
 
     public void delete(int parseInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void deleteStudent(int parseInt) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
