@@ -93,8 +93,6 @@ public class updateStudentForm extends javax.swing.JFrame {
         update_id = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
-        male = new javax.swing.JRadioButton();
-        female = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
@@ -102,13 +100,10 @@ public class updateStudentForm extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         course = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        images = new javax.swing.JLabel();
-        up = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        genders = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,7 +136,7 @@ public class updateStudentForm extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText(" Gender :");
-        jPanel20.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 70, 33));
+        jPanel20.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 70, 33));
 
         update_id.setEditable(false);
         update_id.setBackground(new java.awt.Color(255, 255, 255));
@@ -154,24 +149,6 @@ public class updateStudentForm extends javax.swing.JFrame {
         fname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel20.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 178, 25));
 
-        male.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        male.setText("  MALE");
-        male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maleActionPerformed(evt);
-            }
-        });
-        jPanel20.add(male, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 81, 30));
-
-        female.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        female.setText(" FEMALE");
-        female.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femaleActionPerformed(evt);
-            }
-        });
-        jPanel20.add(female, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 90, 30));
-
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Status:");
         jPanel20.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 60, 33));
@@ -183,7 +160,7 @@ public class updateStudentForm extends javax.swing.JFrame {
                 statusActionPerformed(evt);
             }
         });
-        jPanel20.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 180, 30));
+        jPanel20.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 180, 30));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel29.setText("Course");
@@ -206,67 +183,51 @@ public class updateStudentForm extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel20.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 120, 40));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(images, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(images, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel20.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 120, -1));
-
-        up.setText("Update New Photo");
-        up.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                upActionPerformed(evt);
-            }
-        });
-        jPanel20.add(up, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 140, 30));
+        jPanel20.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 120, 40));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel18.setText(" UPDATE STUDENTS FORM");
-        jPanel20.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 330, 40));
+        jPanel20.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 330, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/t_1.png"))); // NOI18N
         jPanel20.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jPanel21.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 570));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 0, 0));
+        jButton5.setText("Cancel");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel20.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 120, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/t_1.png"))); // NOI18N
-        jPanel21.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        genders.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        genders.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Bisexual", "Bayot", " " }));
+        genders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gendersActionPerformed(evt);
+            }
+        });
+        jPanel20.add(genders, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 180, 30));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setForeground(new java.awt.Color(204, 204, 204));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel21.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 110, 130));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel20.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 490));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/uni.PNG"))); // NOI18N
-        jPanel21.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 650, 120));
+        jPanel21.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 490));
 
         jPanel34.add(jPanel21);
-        jPanel21.setBounds(0, 0, 750, 600);
+        jPanel21.setBounds(0, 0, 480, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -295,62 +256,16 @@ public class updateStudentForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_statusActionPerformed
 
-    private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       studentPage ssp = new studentPage();
+        ssp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-        //        System.out.println(female.isSelected());
-        if (female.isSelected()) {
-            male.setSelected(false);
-            gender = "Female";
-        }
-    }//GEN-LAST:event_femaleActionPerformed
-
-    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
-        //System.out.println(male.isSelected());
-
-        if (male.isSelected()) {
-            female.setSelected(false);
-            gender = "Male";
-        }
-    }//GEN-LAST:event_maleActionPerformed
-
-    private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
-        JFileChooser fileChooser = new JFileChooser();
-        int returnValue = fileChooser.showOpenDialog(null);
-
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            try {
-                selectedFile = fileChooser.getSelectedFile();
-                reference = "src/images/" + selectedFile.getName();
-                path = selectedFile.getAbsolutePath();
-
-                if (FileExistenceChecker(path) == 1) {
-                    JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
-                    reference = "";
-                    path = "";
-                } else {
-                    images.setIcon(ResizeImage(path, null));
-                    byte[] buf = new byte[1024];
-                    System.out.println("" + reference);
-                    up.setVisible(true);
-                    //  up.setText("REMOVE");
-                }
-            } catch (Exception ex) {
-                System.out.println("File Error!");
-            }
-        }
-    }//GEN-LAST:event_upActionPerformed
-    public ImageIcon ResizeImage(String ImagePath, byte[] pic) {
-        ImageIcon MyImage = null;
-        if (ImagePath != null) {
-            MyImage = new ImageIcon(ImagePath);
-        } else {
-            MyImage = new ImageIcon(pic);
-        }
-        Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(images.getWidth(), images.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(newImg);
-        return image;
-    }
+    private void gendersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gendersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gendersActionPerformed
+   
 
     /**
      * @param args the command line arguments
@@ -400,29 +315,24 @@ public class updateStudentForm extends javax.swing.JFrame {
     public javax.swing.JTextField contact;
     public javax.swing.JTextField course;
     public javax.swing.JTextField email;
-    public javax.swing.JRadioButton female;
     public javax.swing.JTextField fname;
-    public javax.swing.JLabel images;
+    public javax.swing.JComboBox<String> genders;
     public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel34;
-    public javax.swing.JRadioButton male;
     public javax.swing.JComboBox<String> status;
-    private javax.swing.JButton up;
     public javax.swing.JTextField update_id;
     // End of variables declaration//GEN-END:variables
 

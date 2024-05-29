@@ -227,8 +227,6 @@ public class createuserform extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 125, -1));
-
-        password.setEnabled(false);
         jPanel1.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 125, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));

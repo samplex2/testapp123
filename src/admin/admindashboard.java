@@ -63,6 +63,7 @@ public class admindashboard extends javax.swing.JFrame {
         p_manage5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -323,6 +324,10 @@ public class admindashboard extends javax.swing.JFrame {
         jPanel1.add(p_manage5);
         p_manage5.setBounds(180, 230, 170, 170);
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(0, 0, 760, 440);
+
         jPanel4.add(jPanel1);
         jPanel1.setBounds(0, 120, 750, 440);
 
@@ -415,11 +420,11 @@ loginform lg = new loginform();
     }//GEN-LAST:event_p_manage5MouseClicked
 
     private void p_manage5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseEntered
-        // TODO add your handling code here:
+     p_manage5.setBackground(hovercolor);
     }//GEN-LAST:event_p_manage5MouseEntered
 
     private void p_manage5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseExited
-        // TODO add your handling code here:
+        p_manage5.setBackground(navcolor);
     }//GEN-LAST:event_p_manage5MouseExited
 
     /**
@@ -470,6 +475,7 @@ loginform lg = new loginform();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

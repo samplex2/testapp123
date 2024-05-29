@@ -33,12 +33,12 @@ public class studentPage extends javax.swing.JFrame {
         initComponents();
         displayDatas();
     }
-     Color navcolor = new Color(255,255,204);
+     Color navcolor = new Color(51,204,255);
      Color hovercolor = new Color (255,204,255);
    public void displayDatas(){
     try{
         dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT scholarship_id,scholarship_name,scholarship_status,scholarship_type FROM tbl_scholarship");
+        ResultSet rs = dbc.getData("SELECT student_id,student_name,student_email,student_gender,student_course,student_contact,image FROM tbl_student");
         scholarshiptable.setModel(DbUtils.resultSetToTableModel(rs));
         rs.close();
     } catch(SQLException ex){
@@ -63,10 +63,13 @@ public class studentPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         p_delete = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         userstable = new javax.swing.JScrollPane();
         scholarshiptable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +92,7 @@ public class studentPage extends javax.swing.JFrame {
         jPanel2.add(userid);
         userid.setBounds(490, 150, 36, 14);
 
-        p_add.setBackground(new java.awt.Color(255, 255, 204));
+        p_add.setBackground(new java.awt.Color(51, 204, 255));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_addMouseClicked(evt);
@@ -106,12 +109,12 @@ public class studentPage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("ADD");
         p_add.add(jLabel5);
-        jLabel5.setBounds(50, 10, 30, 17);
+        jLabel5.setBounds(30, 10, 30, 17);
 
         jPanel2.add(p_add);
-        p_add.setBounds(10, 60, 170, 40);
+        p_add.setBounds(20, 60, 90, 30);
 
-        update.setBackground(new java.awt.Color(255, 255, 204));
+        update.setBackground(new java.awt.Color(51, 204, 255));
         update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updateMouseClicked(evt);
@@ -128,12 +131,12 @@ public class studentPage extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("EDIT");
         update.add(jLabel3);
-        jLabel3.setBounds(50, 10, 31, 17);
+        jLabel3.setBounds(30, 10, 31, 17);
 
         jPanel2.add(update);
-        update.setBounds(10, 120, 170, 40);
+        update.setBounds(20, 100, 90, 30);
 
-        p_delete.setBackground(new java.awt.Color(255, 255, 204));
+        p_delete.setBackground(new java.awt.Color(51, 204, 255));
         p_delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_deleteMouseClicked(evt);
@@ -150,22 +153,10 @@ public class studentPage extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel9.setText("DELETE");
         p_delete.add(jLabel9);
-        jLabel9.setBounds(50, 10, 70, 17);
+        jLabel9.setBounds(20, 10, 60, 17);
 
         jPanel2.add(p_delete);
-        p_delete.setBounds(190, 60, 170, 40);
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel2.setText("Back");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(600, 430, 70, 30);
+        p_delete.setBounds(20, 140, 90, 30);
 
         userstable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,6 +186,39 @@ public class studentPage extends javax.swing.JFrame {
         jLabel1.setText("Student Information");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(20, 10, 480, 40);
+
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(51, 204, 255));
+        jButton2.setText("Print");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(570, 277, 90, 60);
+
+        jPanel3.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel3.setLayout(null);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel2.setText("Back");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(10, 0, 60, 30);
+
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(580, 400, 80, 30);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(0, 0, 680, 470);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 680, 470);
@@ -268,25 +292,38 @@ public class studentPage extends javax.swing.JFrame {
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
         int rowIndex = scholarshiptable.getSelectedRow();
-        loginform lb = new loginform();
-        admindashboard ad = new admindashboard();
+loginform lb = new loginform();
+admindashboard ad = new admindashboard();
 
-        Connection conn;
-        String newImage = null;
-        if (rowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please Select an Item!");
-        } else {
-            TableModel model = scholarshiptable.getModel();
-            updateStudentForm usf = new updateStudentForm();
-            usf.update_id.setText("" + model.getValueAt(rowIndex, 0));
-            usf.fname.setText("" + model.getValueAt(rowIndex, 1));
-            usf.email.setText("" + model.getValueAt(rowIndex, 2));
-            usf.contact.setText("" + model.getValueAt(rowIndex, 3));
-            usf.course.setText(""+model.getValueAt(rowIndex, 4));
-            usf.setVisible(true);
-            this.hide();
-            usf.ads = ads;
-        }
+Connection conn;
+String newImage = null;
+
+
+if (rowIndex < 0) {
+    JOptionPane.showMessageDialog(null, "Please Select an Item!");
+} else {
+    TableModel model = scholarshiptable.getModel();
+    int columnCount = model.getColumnCount();
+    
+    // Ensure the table has enough columns to avoid ArrayIndexOutOfBoundsException
+    if (columnCount >= 5) {
+        updateStudentForm usf = new updateStudentForm();
+        
+        usf.update_id.setText("" + model.getValueAt(rowIndex, 0));
+        usf.fname.setText("" + model.getValueAt(rowIndex, 1));
+        usf.email.setText("" + model.getValueAt(rowIndex, 2));
+        usf.contact.setText("" + model.getValueAt(rowIndex, 3));
+        usf.course.setText("" + model.getValueAt(rowIndex, 4));
+        usf.genders.setSelectedItem(model.getValueAt(rowIndex, 4).toString());
+        usf.status.setSelectedItem(model.getValueAt(rowIndex, 5).toString());
+        usf.setVisible(true);
+        this.hide();
+        usf.ads = ads;
+    } else {
+        JOptionPane.showMessageDialog(null, "Table does not have enough columns!");
+    }
+}
+
     }//GEN-LAST:event_updateMouseClicked
 
     private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
@@ -300,24 +337,46 @@ public class studentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_p_addMouseEntered
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-       
-          dbConnector dbc = new dbConnector();
-        if (sdescription.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, " All Fields Require!");
-        } else {
-            dbc.insertData("INSERT INTO tbl_scholarship (scholarship_name,scholarship_type,scholarship_description,scholarship_status) " + "VALUES ("
-                    + "'" + scholarshipname.getSelectedItem() + "',"
-                    + " '" + scholarshiptype.getSelectedItem() + "',"
-                    + " '" + sdescription.getText() + "',"
-                    + "'" + "Pending')");
-            scholarshippage db = new scholarshippage();
-            db.setVisible(true);
-            this.hide();
-            db.ads = ads ;
-        }
-
+      addStudentForm asf = new addStudentForm();
+             asf.setVisible(true);
+             this.dispose();
+         
         this.dispose();
     }//GEN-LAST:event_p_addMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int rowIndex = scholarshiptable.getSelectedRow();
+
+        if(rowIndex<0){
+            JOptionPane.showMessageDialog(null,"Please Select some Item");
+        }else{
+
+            try{
+                dbConnector dbc = new dbConnector();
+                TableModel tbl = scholarshiptable.getModel();
+                ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex,0)+"'");
+                if(rs.next()){
+                    printform pf = new printform();
+                    pf.uid.setText(""+rs.getInt("u_id"));
+                    pf.fname.setText(""+rs.getString("u_fname"));
+                    pf.lname.setText(""+rs.getString("u_lname"));
+                    pf.email.setText(""+rs.getString("u_email"));
+                    pf.username.setText(""+rs.getString("u_username"));
+                    pf.usertype.setText(""+rs.getString("u_type"));
+                    pf.status.setText(""+rs.getString("u_status"));
+                    pf.image.setIcon(pf.ResizeImage(rs.getString("u_image"),null, pf.image));
+                    pf.setVisible(true);
+                    this.dispose();
+
+                    this.dispose();
+
+                }
+            }catch(SQLException ex){
+                System.out.println(""+ex);
+            }
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,20 +421,23 @@ public class studentPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel currentuser;
+    public javax.swing.JLabel currentuser;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_delete;
     private javax.swing.JTable scholarshiptable;
     private javax.swing.JPanel update;
-    private javax.swing.JLabel userid;
+    public javax.swing.JLabel userid;
     private javax.swing.JScrollPane userstable;
     // End of variables declaration//GEN-END:variables
 

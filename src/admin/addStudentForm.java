@@ -65,19 +65,17 @@ public class addStudentForm extends javax.swing.JFrame {
         id = new javax.swing.JTextField();
         gmail = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
-        male = new javax.swing.JRadioButton();
-        female = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         contact = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         course = new javax.swing.JTextField();
-        image = new javax.swing.JLabel();
-        ins = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        CANCEL = new javax.swing.JButton();
+        genders = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -90,54 +88,36 @@ public class addStudentForm extends javax.swing.JFrame {
         jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel5.setText("Student ID :");
-        jPanel20.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, 33));
+        jPanel20.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 120, 33));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel6.setText("Name:");
-        jPanel20.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, 20));
+        jPanel20.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 70, 20));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Gmail:");
-        jPanel20.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, 30));
+        jLabel7.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel7.setText("Email:");
+        jPanel20.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 70, 30));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel8.setText(" Gender :");
-        jPanel20.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 70, 33));
+        jPanel20.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 90, 33));
 
         id.setEditable(false);
         id.setBackground(new java.awt.Color(255, 255, 255));
         id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 179, 28));
+        jPanel20.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 179, 28));
 
         gmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(gmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 179, 28));
+        jPanel20.add(gmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 179, 28));
 
         fname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 178, 28));
+        jPanel20.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 178, 28));
 
-        male.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        male.setText("  MALE");
-        male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maleActionPerformed(evt);
-            }
-        });
-        jPanel20.add(male, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 81, 30));
-
-        female.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        female.setText(" FEMALE");
-        female.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                femaleActionPerformed(evt);
-            }
-        });
-        jPanel20.add(female, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, 30));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel9.setText("Status:");
-        jPanel20.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 60, 33));
+        jPanel20.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 80, 33));
 
         status.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single ", "Married\t", "Widowed", " " }));
@@ -146,80 +126,79 @@ public class addStudentForm extends javax.swing.JFrame {
                 statusActionPerformed(evt);
             }
         });
-        jPanel20.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, 30));
+        jPanel20.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 180, 30));
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel29.setText("Course:");
-        jPanel20.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 60, 33));
+        jPanel20.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 80, 33));
 
         contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 179, 28));
+        jPanel20.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 179, 28));
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel31.setText("Contact :");
-        jPanel20.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 70, 33));
+        jPanel20.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 90, 33));
 
         course.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(course, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 179, 28));
+        jPanel20.add(course, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 179, 28));
 
-        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/uuser.png"))); // NOI18N
-        jPanel20.add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, -1, -1));
-
-        ins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-insert-35.png"))); // NOI18N
-        ins.setText("UPLOAD ");
-        ins.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insActionPerformed(evt);
-            }
-        });
-        jPanel20.add(ins, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 100, 40));
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-add-45.png"))); // NOI18N
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton2.setText("ADD");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel20.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 100, 40));
+        jPanel20.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 100, 40));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("ADD STUDENT FORM");
         jPanel20.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jPanel34.add(jPanel20);
-        jPanel20.setBounds(20, 0, 750, 500);
+        CANCEL.setBackground(new java.awt.Color(255, 255, 255));
+        CANCEL.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        CANCEL.setForeground(new java.awt.Color(255, 0, 0));
+        CANCEL.setText("CANCEL");
+        CANCEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CANCELActionPerformed(evt);
+            }
+        });
+        jPanel20.add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, -1, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/t_1.png"))); // NOI18N
-        jPanel34.add(jLabel3);
-        jLabel3.setBounds(0, 0, 110, 110);
+        genders.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        genders.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Bisexual", "Gay", "Tomboy" }));
+        genders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gendersActionPerformed(evt);
+            }
+        });
+        jPanel20.add(genders, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 180, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel20.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 470));
+
+        jPanel34.add(jPanel20);
+        jPanel20.setBounds(0, 0, 510, 470);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+            .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
- public ImageIcon ResizeImage(String ImagePath, byte[] pic) {
-        ImageIcon MyImage = null;
-        if (ImagePath != null) {
-            MyImage = new ImageIcon(ImagePath);
-        } else {
-            MyImage = new ImageIcon(pic);
-        }
-        Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(newImg);
-        return image;
-    }
+ 
 
     public int FileExistenceChecker(String path) {
         File file = new File(path);
@@ -239,48 +218,6 @@ public class addStudentForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_statusActionPerformed
 
-    private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
-        if (female.isSelected()) {
-            male.setSelected(false);
-            gender = "Female";
-        }
-    }//GEN-LAST:event_femaleActionPerformed
-
-    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
-        if (male.isSelected()) {
-            female.setSelected(false);
-            gender = "Male";
-        }
-    }//GEN-LAST:event_maleActionPerformed
-
-    private void insActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insActionPerformed
-
-        JFileChooser fileChooser = new JFileChooser();
-        int returnValue = fileChooser.showOpenDialog(null);
-
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            try {
-                selectedFile = fileChooser.getSelectedFile();
-                reference = "src/images/" + selectedFile.getName();
-                path = selectedFile.getAbsolutePath();
-
-                if (FileExistenceChecker(path) == 1) {
-                    JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
-                    reference = "";
-                    path = "";
-                } else {
-                    image.setIcon(ResizeImage(path, null));
-                    byte[] buf = new byte[1024];
-                    System.out.println("" + reference);
-                    ins.setVisible(true);
-                    
-                }
-            } catch (Exception ex) {
-                System.out.println("File Error!");
-            }
-        }
-    }//GEN-LAST:event_insActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int result = 0;
 
@@ -295,31 +232,41 @@ public class addStudentForm extends javax.swing.JFrame {
             pst.setString(4, contact.getText());
             pst.setString(5, gender);
             pst.setString(6, reference.replace("\\", "\\\\"));
-            pst.setString(7, status.getSelectedItem().toString());
+                pst.setString(7, status.getSelectedItem().toString());
 
-            pst.execute();
-            studentPage db = new studentPage();
-            db.setVisible(true);
-//            this.hide();
-            db.ad = ads;
-            result = 1;
-            Files.copy(selectedFile.toPath(), new File(reference).toPath(), StandardCopyOption.REPLACE_EXISTING);
-            //  JOptionPane.showMessageDialog(null, "Successfully Added!");
+                pst.execute();
+                studentPage db = new studentPage();
+                db.setVisible(true);
+                //            this.hide();
+                db.ad = ads;
+                result = 1;
+                Files.copy(selectedFile.toPath(), new File(reference).toPath(), StandardCopyOption.REPLACE_EXISTING);
+                //  JOptionPane.showMessageDialog(null, "Successfully Added!");
 
-        } catch (Exception e) {
-            //  System.out.println("Insert Image Error");
-        }
-        if (result == 1) {
-            JOptionPane.showMessageDialog(null, "Successfully Save!");
-            studentPage sp = null;
-            sp = new studentPage();
-            sp.uname = nms;
-            sp.ad = ads;
-        } else {
-            JOptionPane.showMessageDialog(null, "Input all Data!");
-            System.out.println("Saving Data Failed!");
-        }
+            } catch (Exception e) {
+                //  System.out.println("Insert Image Error");
+            }
+            if (result == 1) {
+                JOptionPane.showMessageDialog(null, "Successfully Save!");
+                studentPage sp = null;
+                sp = new studentPage();
+                sp.uname = nms;
+                sp.ad = ads;
+            } else {
+                JOptionPane.showMessageDialog(null, "Input all Data!");
+                System.out.println("Saving Data Failed!");
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
+        studentPage  uf= new studentPage();
+        uf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CANCELActionPerformed
+
+    private void gendersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gendersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gendersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,18 +307,17 @@ public class addStudentForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton CANCEL;
     public javax.swing.JTextField contact;
     public javax.swing.JTextField course;
-    public javax.swing.JRadioButton female;
     public javax.swing.JTextField fname;
+    public javax.swing.JComboBox<String> genders;
     public javax.swing.JTextField gmail;
     public javax.swing.JTextField id;
-    private javax.swing.JLabel image;
-    private javax.swing.JButton ins;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -380,7 +326,6 @@ public class addStudentForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel34;
-    public javax.swing.JRadioButton male;
     public javax.swing.JComboBox<String> status;
     // End of variables declaration//GEN-END:variables
 }

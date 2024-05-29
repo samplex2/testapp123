@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2024 at 04:21 PM
+-- Generation Time: May 27, 2024 at 12:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -67,7 +67,10 @@ CREATE TABLE `tbl_scholarship` (
 INSERT INTO `tbl_scholarship` (`scholarship_id`, `scholarship_name`, `scholarship_type`, `scholarship_description`, `scholarship_status`) VALUES
 (1001, 'Unifast', 'Academic', '0', ''),
 (1002, 'CHED', 'Academic', 'awts', 'Pending'),
-(1003, 'CHED', 'Goverment', 'aray audrey', 'Pending');
+(1003, 'CHED', 'Goverment', 'aray audrey', 'Pending'),
+(1004, 'UNIFAST', 'Academic', 'WTF', 'Pending'),
+(1005, 'CHED', 'Academic', 'WTF ', 'Pending'),
+(1006, 'UNIFAST', 'Goverment', 'Applylang', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -115,11 +118,12 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`u_id`, `u_fname`, `u_lname`, `u_email`, `u_username`, `u_password`, `u_type`, `u_status`, `u_image`) VALUES
-(1001, 'john paul', 'resane', 'resane01@gmail.com', 'johnpaul123', 'resane123', 'Admin', 'Active', 'src/userimages/Screenshot 2024-05-07 101221.png'),
-(1003, 'john', 'resane', 'jp@gmail.com', 'jp123', '12345678', 'Admin', 'Pending', ''),
-(1004, 'test', 'test', 'test', 'test', 'FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 'Admin', 'Active', ''),
-(1005, 'test', 'test', 'teest', 'teest', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Student', 'Active', ''),
-(1006, 'pol', 'pol', 'pol', 'pol', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Admin', 'Active', 'src/userimages/Screenshot 2024-05-06 174227.png');
+(1001, 'john paul', 'resane', 'resane01@gmail.com', 'johnpaul123', 'pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=', 'Admin', 'Active', 'src/userimages/Screenshot 2024-05-07 101221.png'),
+(1003, 'john', 'resane', 'jp@gmail.com', 'jp123', 'pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=', 'Admin', 'Pending', ''),
+(1004, 'test', 'test', 'test', 'test', 'pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=', 'Admin', 'Active', ''),
+(1005, 'test', 'test', 'teest', 'teest', 'pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=', 'Student', 'Active', ''),
+(1006, 'pol', 'pol', 'pol', 'pol', 'pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=', 'Admin', 'Active', 'src/userimages/Screenshot 2024-05-06 174227.png'),
+(1007, 'pol', 'pol', 'pol@gmail.com', 'pol3', '12345678', 'Student', 'Active', 'src/userimages/Screenshot 2024-05-06 174432.png');
 
 --
 -- Indexes for dumped tables
@@ -137,7 +141,9 @@ ALTER TABLE `tbl_application`
 -- Indexes for table `tbl_report`
 --
 ALTER TABLE `tbl_report`
-  ADD PRIMARY KEY (`report_id`);
+  ADD PRIMARY KEY (`report_id`),
+  ADD KEY `scholarship_id` (`scholarship_id`),
+  ADD KEY `student_id` (`student_id`);
 
 --
 -- Indexes for table `tbl_scholarship`
@@ -177,7 +183,7 @@ ALTER TABLE `tbl_report`
 -- AUTO_INCREMENT for table `tbl_scholarship`
 --
 ALTER TABLE `tbl_scholarship`
-  MODIFY `scholarship_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
+  MODIFY `scholarship_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
 
 --
 -- AUTO_INCREMENT for table `tbl_student`
@@ -189,7 +195,7 @@ ALTER TABLE `tbl_student`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007;
+  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1008;
 
 --
 -- Constraints for dumped tables

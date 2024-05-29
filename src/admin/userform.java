@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
+import user.userDetails;
 
 /**
  *
@@ -28,7 +29,7 @@ public class userform extends javax.swing.JFrame {
         displayData();
         
     }
-     Color navcolor = new Color(255,255,204);
+     Color navcolor = new Color(51,204,255);
      Color hovercolor = new Color (255,204,255);
     public void displayData(){
         try{
@@ -71,6 +72,10 @@ public class userform extends javax.swing.JFrame {
         usertable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        manageuser2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -95,18 +100,20 @@ public class userform extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-student-100.png"))); // NOI18N
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(690, 10, 120, 100);
+        jLabel7.setBounds(550, 0, 100, 80);
 
         currentuser.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         currentuser.setText("Current User");
         jPanel1.add(currentuser);
-        currentuser.setBounds(700, 120, 90, 17);
+        currentuser.setBounds(570, 70, 90, 20);
 
         userid.setText("User ID");
         jPanel1.add(userid);
-        userid.setBounds(700, 140, 36, 14);
+        userid.setBounds(580, 100, 36, 14);
 
-        p_add.setBackground(new java.awt.Color(255, 255, 204));
+        p_add.setBackground(new java.awt.Color(51, 204, 255));
+        p_add.setMinimumSize(new java.awt.Dimension(110, 30));
+        p_add.setPreferredSize(new java.awt.Dimension(110, 30));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_addMouseClicked(evt);
@@ -123,12 +130,14 @@ public class userform extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel5.setText("ADD");
         p_add.add(jLabel5);
-        jLabel5.setBounds(50, 10, 30, 17);
+        jLabel5.setBounds(30, 10, 30, 17);
 
         jPanel1.add(p_add);
-        p_add.setBounds(10, 60, 170, 40);
+        p_add.setBounds(40, 60, 90, 30);
 
-        p_edit.setBackground(new java.awt.Color(255, 255, 204));
+        p_edit.setBackground(new java.awt.Color(51, 204, 255));
+        p_edit.setMinimumSize(new java.awt.Dimension(110, 30));
+        p_edit.setPreferredSize(new java.awt.Dimension(110, 30));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_editMouseClicked(evt);
@@ -145,12 +154,14 @@ public class userform extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("EDIT");
         p_edit.add(jLabel3);
-        jLabel3.setBounds(50, 10, 31, 17);
+        jLabel3.setBounds(20, 10, 31, 17);
 
         jPanel1.add(p_edit);
-        p_edit.setBounds(10, 120, 170, 40);
+        p_edit.setBounds(40, 100, 90, 30);
 
-        p_delete.setBackground(new java.awt.Color(255, 255, 204));
+        p_delete.setBackground(new java.awt.Color(51, 204, 255));
+        p_delete.setMinimumSize(new java.awt.Dimension(110, 30));
+        p_delete.setPreferredSize(new java.awt.Dimension(110, 30));
         p_delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 p_deleteMouseClicked(evt);
@@ -167,10 +178,10 @@ public class userform extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel9.setText("DELETE");
         p_delete.add(jLabel9);
-        jLabel9.setBounds(50, 10, 70, 17);
+        jLabel9.setBounds(20, 7, 60, 20);
 
         jPanel1.add(p_delete);
-        p_delete.setBounds(190, 90, 170, 40);
+        p_delete.setBounds(40, 140, 90, 30);
 
         userstable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -204,7 +215,7 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(680, 420, 90, 27);
+        jButton1.setBounds(650, 420, 90, 27);
 
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton2.setText("PRINT");
@@ -214,15 +225,66 @@ public class userform extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(570, 420, 90, 27);
+        jButton2.setBounds(540, 420, 90, 27);
+
+        manageuser2.setBackground(new java.awt.Color(51, 204, 255));
+        manageuser2.setPreferredSize(new java.awt.Dimension(170, 180));
+        manageuser2.setRequestFocusEnabled(false);
+        manageuser2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                manageuser2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                manageuser2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                manageuser2MouseExited(evt);
+            }
+        });
+
+        jLabel11.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-admin-100.png"))); // NOI18N
+        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel12.setText("My Information");
+
+        javax.swing.GroupLayout manageuser2Layout = new javax.swing.GroupLayout(manageuser2);
+        manageuser2.setLayout(manageuser2Layout);
+        manageuser2Layout.setHorizontalGroup(
+            manageuser2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageuser2Layout.createSequentialGroup()
+                .addGroup(manageuser2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageuser2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(manageuser2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        manageuser2Layout.setVerticalGroup(
+            manageuser2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageuser2Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(manageuser2);
+        manageuser2.setBounds(550, 120, 140, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 0, 760, 470);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 757, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -398,6 +460,20 @@ int rowIndex = usertable.getSelectedRow();
   
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void manageuser2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageuser2MouseClicked
+        userDetails ud = new userDetails();
+        ud.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_manageuser2MouseClicked
+
+    private void manageuser2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageuser2MouseEntered
+
+    }//GEN-LAST:event_manageuser2MouseEntered
+
+    private void manageuser2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageuser2MouseExited
+
+    }//GEN-LAST:event_manageuser2MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -439,12 +515,16 @@ int rowIndex = usertable.getSelectedRow();
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel manageuser2;
     private javax.swing.JPanel p_add;
     private javax.swing.JPanel p_delete;
     private javax.swing.JPanel p_edit;

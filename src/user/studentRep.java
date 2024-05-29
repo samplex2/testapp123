@@ -5,50 +5,17 @@
  */
 package user;
 
-import config.dbConnector;
-import java.awt.print.PrinterException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.MessageFormat;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-
-import net.proteanit.sql.DbUtils;
-
 /**
  *
- * @author Hariell
+ * @author USER
  */
-public class studentRep extends javax.swing.JInternalFrame {
+public class studentRep extends javax.swing.JFrame {
 
     /**
-     * Creates new form April10
+     * Creates new form studentpage
      */
     public studentRep() {
         initComponents();
-        displayData();
-    }
-    public String ad = "";
-
-    public void displayData() {
-
-        try {
-            dbConnector dbc = new dbConnector();
-           ResultSet rs = dbc.getData("SELECT tbl_student.student_id, \n"
-                    + "                    tbl_student.gmail, \n"
-                    + "                    tbl_student.name, \n"
-                    + "                    tbl_student.student_course, \n"
-                    + "                    tbl_scholarship.scholarship_status ,\n"
-                    + "                    tbl_scholarship.scholarship_name \n"
-                    + "                    FROM tbl_application \n"
-                    + "                    LEFT JOIN tbl_student ON tbl_application.student_id = tbl_student.student_id \n"
-                    + "                    LEFT JOIN tbl_scholarship ON tbl_application.scholarship_id = tbl_scholarship.scholarship_id");
-
-            rep.setModel(DbUtils.resultSetToTableModel(rs));
-
-        } catch (SQLException ex) {
-            System.out.println("Error Message" + ex);
-        }
     }
 
     /**
@@ -60,85 +27,60 @@ public class studentRep extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        rep = new javax.swing.JTable();
-        print = new javax.swing.JButton();
-        print1 = new javax.swing.JButton();
-
-        jPanel1.setLayout(null);
-
-        rep.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                repMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(rep);
-
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 122, 560, 380);
-
-        print.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        print.setForeground(new java.awt.Color(255, 0, 0));
-        print.setText("Cancel");
-        print.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printActionPerformed(evt);
-            }
-        });
-        jPanel1.add(print);
-        print.setBounds(480, 80, 110, 30);
-
-        print1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        print1.setText("Print");
-        print1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                print1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(print1);
-        print1.setBounds(360, 80, 110, 30);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+            .addGap(0, 653, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void repMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repMouseClicked
-
-    }//GEN-LAST:event_repMouseClicked
-
-    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
-        MessageFormat header = new MessageFormat("SCHOLAR REPORT");
-        MessageFormat footer = new MessageFormat("Scholarship");
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
-            rep.print(JTable.PrintMode.FIT_WIDTH, header, footer);
-        } catch (PrinterException e) {
-            JOptionPane.showMessageDialog(null, "Cannot be print!" + e.getMessage());
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(studentRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(studentRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(studentRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(studentRep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_printActionPerformed
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
-    private void print1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_print1ActionPerformed
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new studentRep().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton print;
-    private javax.swing.JButton print1;
-    public javax.swing.JTable rep;
     // End of variables declaration//GEN-END:variables
 }
