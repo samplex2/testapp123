@@ -7,8 +7,12 @@ package admin;
 
 import config.dbConnector;
 import java.io.File;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import static testapp2.registrationForm.mail;
+import static testapp2.registrationForm.usname;
 
 /**
  *
@@ -25,6 +29,35 @@ public class updateScholarForm extends javax.swing.JFrame {
     public updateScholarForm() {
         initComponents();
     }
+    
+     public boolean updateCheck(){
+    dbConnector dbc = new dbConnector();
+    try{
+        String query = "SELECT * FROM tbl_scholarship WHERE scholarship_id = "+sc_id.getText();
+
+            ResultSet resultSet =dbc.getData(query);
+        if(resultSet.next()){
+           String type = resultSet.getString("scholarship_type");
+            System.out.println(""+type);
+            if(type.equals(sc_type.getText())){
+                JOptionPane.showMessageDialog(null,"Schoalrship Type is Already Used!");
+              sc_type.setText("");
+            }
+            String name = resultSet.getString("scholarship_name");
+            if(name.equals(sc_name.getText())){
+                JOptionPane.showMessageDialog(null,"Scholarship Name is Already Used!");
+              sc_name.setText("");
+            } 
+           usname = resultSet.getString("scholarship_name");
+             return true;
+        }else{
+            return false;
+        }
+    }catch(SQLException ex){
+        System.out.println(""+ex);
+        return false;
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,8 +80,6 @@ public class updateScholarForm extends javax.swing.JFrame {
         sc_des = new javax.swing.JTextField();
         sc_name = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        sc_status = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -91,8 +122,8 @@ public class updateScholarForm extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel28.setText("Scholarship Description:");
-        jPanel20.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 180, 33));
-        jPanel20.add(sc_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 190, 80));
+        jPanel20.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 180, 33));
+        jPanel20.add(sc_des, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 190, 80));
 
         sc_name.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel20.add(sc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 178, 25));
@@ -106,13 +137,6 @@ public class updateScholarForm extends javax.swing.JFrame {
             }
         });
         jPanel20.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 120, 40));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setText("Status :");
-        jPanel20.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 60, 33));
-
-        sc_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Approved", "Declined", "Pending" }));
-        jPanel20.add(sc_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, 30));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel18.setText("UPDATE SCHOLARSHIP FORM");
@@ -140,7 +164,7 @@ public class updateScholarForm extends javax.swing.JFrame {
         );
         jPanel21Layout.setVerticalGroup(
             jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel21Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -161,7 +185,21 @@ public class updateScholarForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        if(sc_name.getText().isEmpty()|| sc_type.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"All Fields are Required!");
+        }else{
+        
+        
+        dbConnector dbc= new dbConnector();
+       dbc.updateData("UPDATE tbl_scholarship SET scholarship_name='"+sc_name.getText()+"', scholarship_type='"+sc_type.getText()+"',"
+               + " scholarship_description='"+sc_des.getText()+"' WHERE scholarship_id='"+sc_id.getText()+"'");
+   
+             
+             scholarshippage uf= new scholarshippage();
+               uf.setVisible(true);
+               this.dispose(); 
+        }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -191,6 +229,8 @@ public class updateScholarForm extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -204,7 +244,6 @@ public class updateScholarForm extends javax.swing.JFrame {
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel5;
@@ -216,7 +255,6 @@ public class updateScholarForm extends javax.swing.JFrame {
     public javax.swing.JTextField sc_des;
     public javax.swing.JTextField sc_id;
     public javax.swing.JTextField sc_name;
-    public javax.swing.JComboBox<String> sc_status;
     public javax.swing.JTextField sc_type;
     // End of variables declaration//GEN-END:variables
 }

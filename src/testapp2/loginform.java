@@ -89,13 +89,12 @@ public class loginform extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         username = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        password = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,20 +102,18 @@ public class loginform extends javax.swing.JFrame {
         jPanel1.setLayout(null);
         jPanel1.add(username);
         username.setBounds(360, 290, 120, 30);
-        jPanel1.add(password);
-        password.setBounds(360, 330, 120, 30);
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("UserName :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(250, 300, 90, 18);
+        jLabel2.setBounds(220, 298, 140, 20);
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Password :");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(250, 340, 90, 18);
+        jLabel3.setBounds(220, 338, 140, 20);
 
         jButton2.setBackground(new java.awt.Color(153, 153, 0));
         jButton2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
@@ -150,20 +147,12 @@ public class loginform extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel4);
         jLabel4.setBounds(320, 420, 200, 14);
+        jPanel1.add(password);
+        password.setBounds(360, 330, 120, 30);
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-school-96.png"))); // NOI18N
-        jLabel1.setText("LOGIN FORM");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(180, 180, 350, 96);
-
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/loginform.jpg"))); // NOI18N
-        jLabel5.setText("jLabel5");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/SCHOLARSHIP_1.jpg"))); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 750, 570);
+        jLabel5.setBounds(0, 0, 753, 570);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,13 +243,12 @@ public class loginform extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package admin;
 
 import admin.admindashboard;
+import config.dbConnector;
 import java.awt.Image;
 import java.io.File;
 import java.nio.file.Files;
@@ -63,7 +64,7 @@ public class addStudentForm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
-        gmail = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         status = new javax.swing.JComboBox<>();
@@ -109,8 +110,8 @@ public class addStudentForm extends javax.swing.JFrame {
         id.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel20.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 179, 28));
 
-        gmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(gmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 179, 28));
+        email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel20.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 179, 28));
 
         fname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel20.add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 178, 28));
@@ -130,17 +131,17 @@ public class addStudentForm extends javax.swing.JFrame {
 
         jLabel29.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel29.setText("Course:");
-        jPanel20.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 80, 33));
+        jPanel20.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 80, 33));
 
         contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 179, 28));
+        jPanel20.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 179, 28));
 
         jLabel31.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel31.setText("Contact :");
-        jPanel20.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 90, 33));
+        jPanel20.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 90, 33));
 
         course.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel20.add(course, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 179, 28));
+        jPanel20.add(course, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 179, 28));
 
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton2.setText("ADD");
@@ -219,34 +220,12 @@ public class addStudentForm extends javax.swing.JFrame {
     }//GEN-LAST:event_statusActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int result = 0;
+        boolean result = false;
 
-        try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/scholarshipsystem", "root", "");
-            String sql = "INSERT INTO table_student (name,gmail,student_course, student_contactnum,student_gender,image,student_status) VALUES (?,?,?,?,?,?,?)";
-            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
-
-            pst.setString(1, fname.getText());
-            pst.setString(2, gmail.getText());
-            pst.setString(3, course.getText());
-            pst.setString(4, contact.getText());
-            pst.setString(5, gender);
-            pst.setString(6, reference.replace("\\", "\\\\"));
-                pst.setString(7, status.getSelectedItem().toString());
-
-                pst.execute();
-                studentPage db = new studentPage();
-                db.setVisible(true);
-                //            this.hide();
-                db.ad = ads;
-                result = 1;
-                Files.copy(selectedFile.toPath(), new File(reference).toPath(), StandardCopyOption.REPLACE_EXISTING);
-                //  JOptionPane.showMessageDialog(null, "Successfully Added!");
-
-            } catch (Exception e) {
-                //  System.out.println("Insert Image Error");
-            }
-            if (result == 1) {
+            dbConnector connect = new dbConnector();
+            result = connect.insertData("INSERT INTO tbl_student (student_name,student_email,student_course,student_contact,gender,status) VALUES ('"+fname.getText()+"','"+email.getText()+"','"+course.getText()+"','"+contact.getText()+"','"+genders.getSelectedItem()+"','"+status.getSelectedItem()+"')");
+          
+            if (result) {
                 JOptionPane.showMessageDialog(null, "Successfully Save!");
                 studentPage sp = null;
                 sp = new studentPage();
@@ -256,6 +235,10 @@ public class addStudentForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Input all Data!");
                 System.out.println("Saving Data Failed!");
             }
+            
+            studentPage sp = new studentPage();
+            sp.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
@@ -310,9 +293,9 @@ public class addStudentForm extends javax.swing.JFrame {
     public javax.swing.JButton CANCEL;
     public javax.swing.JTextField contact;
     public javax.swing.JTextField course;
+    public javax.swing.JTextField email;
     public javax.swing.JTextField fname;
     public javax.swing.JComboBox<String> genders;
-    public javax.swing.JTextField gmail;
     public javax.swing.JTextField id;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

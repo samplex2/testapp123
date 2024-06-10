@@ -22,7 +22,7 @@ public class dbConnector {
     private Connection connect;
      public dbConnector(){
             try{
-                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample", "root", "");
+                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledbs", "root", "");
             }catch(SQLException ex){
                     System.out.println("Can't connect to database: "+ex.getMessage());
             }
@@ -70,11 +70,23 @@ public class dbConnector {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void delete(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void deleteStudent(int parseInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+    public void deleteData(int id, String table, String var){
+        session sess = session.getInstance();
+       
+        try{
+            PreparedStatement pst = connect.prepareStatement("DELETE FROM "+table+" WHERE "+var+" = ?");
+            pst.setInt(1,id);
+            int rowsDeleted=pst.executeUpdate();
+            if(rowsDeleted >0){
+                JOptionPane.showMessageDialog(null, "Deleted Successfully!");
+               
+            }else{
+                System.out.println("Deletion Failed");
+            }
+            pst.close();
+        }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Deleted Unsuccessfully. \nThis data is currently associated with existing transactions.");
+        }
     }
 }

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,96 +39,101 @@ public class applyscholarship extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        ADD = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        fname = new javax.swing.JTextField();
+        scholarshipname = new javax.swing.JTextField();
+        studid = new javax.swing.JComboBox<>();
+        course = new javax.swing.JTextField();
+        contact = new javax.swing.JTextField();
+        scholarshipdes = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        schid = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        scholtype = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        genders = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        status = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
         jLabel1.setText("Student ID:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 80, 77, 17);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Name:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 52, -1));
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Contact Number:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 130, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 130, 52, 17);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Scholarship Name:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        jLabel4.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel4.setText("Scholarship ID:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(10, 300, 105, 17);
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setText("Scholarship ID:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jLabel5.setText("Scholarship Name:");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(10, 360, 130, 17);
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setText("Student Status:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 130, -1));
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                emailActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 151, 27));
+        jPanel1.add(email);
+        email.setBounds(270, 100, 151, 27);
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Email:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 49, -1));
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(270, 80, 49, 17);
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Course:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(270, 130, 55, 17);
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel10.setText("Gender:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+        jLabel10.setText("Contact:");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(10, 180, 58, 17);
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Scholarship Description:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, -1, -1));
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(270, 300, 172, 20);
 
-        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setText("Scholarship ID:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel14.setText("Scholarship Status:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 172, -1));
-
-        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setText("ADD");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 71, 40));
+        ADD.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        ADD.setText("ADD");
+        ADD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ADDActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ADD);
+        ADD.setBounds(290, 450, 71, 40);
 
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
@@ -137,142 +143,242 @@ public class applyscholarship extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, 40));
+        jPanel1.add(jButton3);
+        jButton3.setBounds(390, 450, 79, 40);
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                fnameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 160, 27));
+        jPanel1.add(fname);
+        fname.setBounds(10, 150, 160, 27);
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        scholarshipname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                scholarshipnameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 160, 27));
+        jPanel1.add(scholarshipname);
+        scholarshipname.setBounds(10, 380, 160, 27);
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        studid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                studidActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 160, 27));
+        jPanel1.add(studid);
+        studid.setBounds(10, 100, 162, 27);
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        course.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                courseActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 160, 27));
+        jPanel1.add(course);
+        course.setBounds(270, 150, 151, 27);
 
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 162, 27));
-
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 160, 27));
-
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                contactActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 151, 27));
+        jPanel1.add(contact);
+        contact.setBounds(10, 200, 151, 27);
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        scholarshipdes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                scholarshipdesActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 151, 27));
-
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 151, 27));
-
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 151, 27));
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 151, 27));
+        jPanel1.add(scholarshipdes);
+        scholarshipdes.setBounds(270, 320, 151, 100);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel7.setText("SCHOLARSHIP APPLICATION FORM ");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 25, -1, -1));
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(10, 25, 427, 29);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 510));
+        schid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schidActionPerformed(evt);
+            }
+        });
+        jPanel1.add(schid);
+        schid.setBounds(10, 320, 160, 27);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setText("Scholarship Type:");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(10, 420, 124, 17);
+
+        scholtype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scholtypeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(scholtype);
+        scholtype.setBounds(10, 440, 160, 27);
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setText("Name:");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(10, 130, 52, 17);
+
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel15.setText("Gender");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(10, 240, 130, 17);
+
+        genders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gendersActionPerformed(evt);
+            }
+        });
+        jPanel1.add(genders);
+        genders.setBounds(10, 260, 160, 27);
+
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel16.setText("Status:");
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(270, 190, 48, 17);
+
+        status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusActionPerformed(evt);
+            }
+        });
+        jPanel1.add(status);
+        status.setBounds(270, 210, 151, 27);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(0, 0, 490, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void scholarshipnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholarshipnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_scholarshipnameActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void fnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_fnameActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void scholarshipdesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholarshipdesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_scholarshipdesActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void courseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_courseActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_emailActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       reports uf= new reports();
+       application uf= new application();
       uf.setVisible(true);
       this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        try {
+            dbConnector connect = new dbConnector();
+            ResultSet rs = connect.getData("SELECT * FROM tbl_student");
+            ResultSet res = connect.getData("SELECT * FROM tbl_scholarship");
+            while(rs.next()){
+                studid.addItem(rs.getString("student_id"));
+            }
+            while(res.next()){
+                schid.addItem(res.getString("scholarship_id"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(applyscholarship.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void scholtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholtypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_scholtypeActionPerformed
+
+    private void gendersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gendersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gendersActionPerformed
+
+    private void statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusActionPerformed
+
+    private void studidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studidActionPerformed
+dbConnector dbc = new dbConnector();
+        try {
+            ResultSet res = dbc.getData("SELECT * FROM tbl_student WHERE student_id = '"+studid.getSelectedItem()+"'");
+            while(res.next()){
+                fname.setText(res.getString("student_name"));
+                contact.setText(res.getString("student_contact"));
+                email.setText(res.getString("student_email"));
+                genders.setText(res.getString("gender"));
+                course.setText(res.getString("student_course"));
+                status.setText(res.getString("status"));
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(applyscholarship.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_studidActionPerformed
+
+    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactActionPerformed
+
+    private void schidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schidActionPerformed
+      dbConnector dbc = new dbConnector();
+        try {
+            ResultSet res = dbc.getData("SELECT * FROM tbl_scholarship WHERE scholarship_id = '"+schid.getSelectedItem()+"'");
+            while(res.next()){
+              scholarshipname.setText(res.getString("scholarship_name"));
+              scholtype.setText(res.getString("scholarship_type"));
+                scholarshipdes.setText(res.getString("scholarship_description"));
+                
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(applyscholarship.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_schidActionPerformed
+
+    private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
+         dbConnector dbc = new dbConnector();
+        {
+            dbc.insertData("INSERT INTO tbl_application (student_id,scholarship_id,status) VALUES ("+ studid.getSelectedItem() + ","+ schid.getSelectedItem() + ",'Available')");
+            
+            
+        }       
+        application usf = new application();
+        usf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ADDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,18 +416,21 @@ public class applyscholarship extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton ADD;
+    public javax.swing.JTextField contact;
+    public javax.swing.JTextField course;
+    public javax.swing.JTextField email;
+    private javax.swing.JTextField fname;
+    public javax.swing.JTextField genders;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -329,15 +438,11 @@ public class applyscholarship extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> schid;
+    public javax.swing.JTextField scholarshipdes;
+    public javax.swing.JTextField scholarshipname;
+    public javax.swing.JTextField scholtype;
+    public javax.swing.JTextField status;
+    public javax.swing.JComboBox<String> studid;
     // End of variables declaration//GEN-END:variables
 }

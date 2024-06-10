@@ -48,8 +48,8 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         p_manage2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         adminname = new javax.swing.JLabel();
         adminname1 = new javax.swing.JLabel();
         adminname2 = new javax.swing.JLabel();
@@ -61,8 +61,8 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         p_manage5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -97,21 +97,22 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-menu-128.png"))); // NOI18N
         jLabel8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
         jLabel10.setText("Manage Scholarship");
 
         javax.swing.GroupLayout p_manageLayout = new javax.swing.GroupLayout(p_manage);
         p_manage.setLayout(p_manageLayout);
         p_manageLayout.setHorizontalGroup(
             p_manageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manageLayout.createSequentialGroup()
+            .addGroup(p_manageLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(p_manageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(p_manageLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel8))
-                    .addComponent(jLabel10))
-                .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manageLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manageLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         p_manageLayout.setVerticalGroup(
             p_manageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +125,7 @@ public class admindashboard extends javax.swing.JFrame {
         );
 
         jPanel1.add(p_manage);
-        p_manage.setBounds(180, 30, 170, 170);
+        p_manage.setBounds(190, 30, 160, 170);
 
         p_manage2.setBackground(new java.awt.Color(204, 255, 255));
         p_manage2.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,38 +141,34 @@ public class admindashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-administrator-male-96.png"))); // NOI18N
-        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
         jLabel7.setText("Manage Students");
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-student-96.png"))); // NOI18N
 
         javax.swing.GroupLayout p_manage2Layout = new javax.swing.GroupLayout(p_manage2);
         p_manage2.setLayout(p_manage2Layout);
         p_manage2Layout.setHorizontalGroup(
             p_manage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_manage2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manage2Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(21, 21, 21))
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(p_manage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel12))
+                .addGap(32, 32, 32))
         );
         p_manage2Layout.setVerticalGroup(
             p_manage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_manage2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage2);
-        p_manage2.setBounds(400, 30, 170, 170);
+        p_manage2.setBounds(410, 30, 160, 170);
 
         adminname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         adminname.setText("Admin");
@@ -205,34 +202,32 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-medical-history-96.png"))); // NOI18N
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel11.setText("Reports");
+        jLabel11.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
+        jLabel11.setText("Application Manage");
 
         javax.swing.GroupLayout p_manage3Layout = new javax.swing.GroupLayout(p_manage3);
         p_manage3.setLayout(p_manage3Layout);
         p_manage3Layout.setHorizontalGroup(
             p_manage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manage3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addGap(55, 55, 55))
             .addGroup(p_manage3Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel9)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addGroup(p_manage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel9))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         p_manage3Layout.setVerticalGroup(
             p_manage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_manage3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage3);
-        p_manage3.setBounds(400, 230, 170, 170);
+        p_manage3.setBounds(410, 230, 160, 170);
 
         p_manage4.setBackground(new java.awt.Color(204, 255, 255));
         p_manage4.setForeground(new java.awt.Color(255, 255, 255));
@@ -271,10 +266,10 @@ public class admindashboard extends javax.swing.JFrame {
         jPanel1.add(p_manage4);
         p_manage4.setBounds(580, 390, 130, 30);
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bodoni MT", 1, 36)); // NOI18N
         jLabel4.setText("WELCOME!!");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 90, 170, 50);
+        jLabel4.setBounds(0, 90, 210, 50);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-education-100.png"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -294,11 +289,12 @@ public class admindashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-medical-history-96.png"))); // NOI18N
-        jLabel12.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
         jLabel13.setText("Manage User");
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-administrator-male-96.png"))); // NOI18N
+        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout p_manage5Layout = new javax.swing.GroupLayout(p_manage5);
         p_manage5.setLayout(p_manage5Layout);
@@ -306,23 +302,25 @@ public class admindashboard extends javax.swing.JFrame {
             p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_manage5Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel12))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(p_manage5Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel13)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         p_manage5Layout.setVerticalGroup(
             p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_manage5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage5);
-        p_manage5.setBounds(180, 230, 170, 170);
+        p_manage5.setBounds(190, 230, 160, 170);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
         jPanel1.add(jLabel6);
@@ -408,7 +406,7 @@ loginform lg = new loginform();
     }//GEN-LAST:event_p_manageMouseClicked
 
     private void p_manage3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage3MouseClicked
-      reports usf = new reports();
+      application usf = new application();
         usf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_p_manage3MouseClicked

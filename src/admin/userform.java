@@ -93,9 +93,9 @@ public class userform extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
-        jLabel1.setText("User Form");
+        jLabel1.setText("Users Form");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 190, 40);
+        jLabel1.setBounds(10, 10, 260, 40);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-student-100.png"))); // NOI18N
@@ -387,23 +387,7 @@ public class userform extends javax.swing.JFrame {
     }//GEN-LAST:event_p_editMouseClicked
 
     private void p_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseClicked
-int rowIndex = usertable.getSelectedRow();
-
-        if (rowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a data first");
-        } else {
-            TableModel model = usertable.getModel();
-            Object value = model.getValueAt(rowIndex, 0);
-            String id = value.toString();
-            int a = JOptionPane.showConfirmDialog(null, "Are you sure?");
-            if (a == JOptionPane.YES_OPTION) {
-                dbConnector dbc = new dbConnector();
-                dbc.delete(Integer.parseInt(id));
-                displayData();
-
-            }
-
-        }   
+ 
     }//GEN-LAST:event_p_deleteMouseClicked
 
     private void p_deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseEntered

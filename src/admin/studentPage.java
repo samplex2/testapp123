@@ -38,7 +38,7 @@ public class studentPage extends javax.swing.JFrame {
    public void displayDatas(){
     try{
         dbConnector dbc = new dbConnector();
-        ResultSet rs = dbc.getData("SELECT student_id,student_name,student_email,student_gender,student_course,student_contact,image FROM tbl_student");
+        ResultSet rs = dbc.getData("SELECT student_id,student_name,student_email,student_course,student_contact,gender,status FROM tbl_student");
         scholarshiptable.setModel(DbUtils.resultSetToTableModel(rs));
         rs.close();
     } catch(SQLException ex){
@@ -263,23 +263,7 @@ public class studentPage extends javax.swing.JFrame {
     }//GEN-LAST:event_p_deleteMouseEntered
 
     private void p_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseClicked
-        int rowIndex = scholarshiptable.getSelectedRow();
-
-        if (rowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a data first");
-        } else {
-            TableModel model = scholarshiptable.getModel();
-            Object value = model.getValueAt(rowIndex, 0);
-            String id = value.toString();
-            int a = JOptionPane.showConfirmDialog(null, "Are you sure?");
-            if (a == JOptionPane.YES_OPTION) {
-                dbConnector dbc = new dbConnector();
-                dbc.delete(Integer.parseInt(id));
-                displayData();
-
-            }
-
-        }
+     
     }//GEN-LAST:event_p_deleteMouseClicked
 
     private void updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseExited

@@ -266,12 +266,12 @@ public class scholarshippage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please Select an Item!");
         } else {
             TableModel model = scholarshiptable.getModel();
-            updateScholarForm usf = new updateScholarForm();
+           updateScholarForm usf = new updateScholarForm();
             usf.sc_id.setText("" + model.getValueAt(rowIndex, 0));
             usf.sc_name.setText("" + model.getValueAt(rowIndex, 1));
             usf.sc_type.setText("" + model.getValueAt(rowIndex, 2));
             usf.sc_des.setText("" + model.getValueAt(rowIndex, 3));
-            usf.sc_status.setSelectedItem(model.getValueAt(rowIndex, 4).toString());
+          
             usf.setVisible(true);
             this.hide();
             usf.ads = ads;
@@ -288,23 +288,7 @@ public class scholarshippage extends javax.swing.JFrame {
     }//GEN-LAST:event_updateMouseExited
 
     private void p_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseClicked
-        int rowIndex = scholarshiptable.getSelectedRow();
-
-        if (rowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a data first");
-        } else {
-            TableModel model = scholarshiptable.getModel();
-            Object value = model.getValueAt(rowIndex, 0);
-            String id = value.toString();
-            int a = JOptionPane.showConfirmDialog(null, "Are you sure?");
-            if (a == JOptionPane.YES_OPTION) {
-                dbConnector dbc = new dbConnector();
-                dbc.delete(Integer.parseInt(id));
-                displayData();
-
-            }
-
-        }
+      
     }//GEN-LAST:event_p_deleteMouseClicked
 
     private void p_deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseEntered

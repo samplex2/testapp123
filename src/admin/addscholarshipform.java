@@ -43,90 +43,11 @@ public class addscholarshipform extends javax.swing.JFrame {
     File selectedFile;
     public String oldpath;
     public String path;
+    public String nms;
+    public String ads = "";
     
-    public int FileExistenceChecker(String path){
-        File file = new File(path);
-        String fileName = file.getName();
-        
-        Path filePath = Paths.get("src/userimages", fileName);
-        boolean fileExists = Files.exists(filePath);
-        
-        if (fileExists) {
-            return 1;
-        } else {
-            return 0;
-        }
-    
-    }
-    public static int getHeightFromWidth(String imagePath, int desiredWidth) {
-        try {
-            // Read the image file
-            File imageFile = new File(imagePath);
-            BufferedImage image = ImageIO.read(imageFile);
-            
-            // Get the original width and height of the image
-            int originalWidth = image.getWidth();
-            int originalHeight = image.getHeight();
-            
-            // Calculate the new height based on the desired width and the aspect ratio
-            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
-            
-            return newHeight;
-        } catch (IOException ex) {
-            System.out.println("No image found!");
-        }
-        
-        return -1;
-    }
-    
-    
-    
-    
-    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
-    ImageIcon MyImage = null;
-        if(ImagePath !=null){
-            MyImage = new ImageIcon(ImagePath);
-        }else{
-            MyImage = new ImageIcon(pic);
-        }
-        
-    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+  
 
-    Image img = MyImage.getImage();
-    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
-    ImageIcon image = new ImageIcon(newImg);
-    return image;
-}
-    
-   public void imageUpdater(String existingFilePath, String newFilePath){
-        File existingFile = new File(existingFilePath);
-        if (existingFile.exists()) {
-            String parentDirectory = existingFile.getParent();
-            File newFile = new File(newFilePath);
-            String newFileName = newFile.getName();
-            File updatedFile = new File(parentDirectory, newFileName);
-            existingFile.delete();
-            try {
-                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Image updated successfully.");
-            } catch (IOException e) {
-                System.out.println("Error occurred while updating the image: "+e);
-            }
-        } else {
-            try{
-                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
-            }catch(IOException e){
-                System.out.println("Error on update!");
-            }
-        }
-   }  
-    
-    
-    
-    
-    
-
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,82 +57,62 @@ public class addscholarshipform extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        scholarshiptype = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        scholarshipname = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        sdescription = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        CANCEL = new javax.swing.JButton();
-        ADD = new javax.swing.JButton();
-        suid = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        suid = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        sname = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        u_type = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        sdescription = new javax.swing.JTextField();
+        ADD = new javax.swing.JButton();
+        CANCEL = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Scholarship Description:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 20));
-
-        scholarshiptype.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        scholarshiptype.setForeground(new java.awt.Color(51, 51, 51));
-        scholarshiptype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Academic", "Goverment", " " }));
-        scholarshiptype.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scholarshiptypeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(scholarshiptype, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 140, 30));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setText("ADD SCHOLARSHIP FORM");
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Scholarship ID : ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, 20));
 
-        scholarshipname.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        scholarshipname.setForeground(new java.awt.Color(51, 51, 51));
-        scholarshipname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CHED", "UNIFAST", " " }));
-        scholarshipname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scholarshipnameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(scholarshipname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 140, 30));
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Scholarsip Type:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, 20));
-        jPanel1.add(sdescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 140, 70));
+        suid.setEnabled(false);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Scholarship Name:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, 20));
 
-        CANCEL.setBackground(new java.awt.Color(255, 255, 255));
-        CANCEL.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        CANCEL.setForeground(new java.awt.Color(255, 0, 0));
-        CANCEL.setText("Cancel");
-        CANCEL.addActionListener(new java.awt.event.ActionListener() {
+        sname.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        sname.setForeground(new java.awt.Color(51, 51, 51));
+        sname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CHED", "UNIFAST", " " }));
+        sname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CANCELActionPerformed(evt);
+                snameActionPerformed(evt);
             }
         });
-        jPanel1.add(CANCEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 90, -1));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Scholarsip Type:");
+
+        u_type.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        u_type.setForeground(new java.awt.Color(51, 51, 51));
+        u_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Academic", "Goverment", " " }));
+        u_type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                u_typeActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Scholarship Description:");
 
         ADD.setBackground(new java.awt.Color(255, 255, 255));
         ADD.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -222,65 +123,117 @@ public class addscholarshipform extends javax.swing.JFrame {
                 ADDActionPerformed(evt);
             }
         });
-        jPanel1.add(ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 90, -1));
 
-        suid.setEnabled(false);
-        jPanel1.add(suid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 140, 30));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel6.setText("ADD SCHOLARSHIP FORM");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 470));
+        CANCEL.setBackground(new java.awt.Color(255, 255, 255));
+        CANCEL.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        CANCEL.setForeground(new java.awt.Color(255, 0, 0));
+        CANCEL.setText("Cancel");
+        CANCEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CANCELActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ADD)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CANCEL))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(130, 130, 130)
+                            .addComponent(jLabel8))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(200, 200, 200)
+                            .addComponent(suid, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(130, 130, 130)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(200, 200, 200)
+                            .addComponent(sname, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(130, 130, 130)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(200, 200, 200)
+                            .addComponent(u_type, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(120, 120, 120)
+                            .addComponent(jLabel3))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(200, 200, 200)
+                            .addComponent(sdescription, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 7, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(suid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(sname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(u_type, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(sdescription, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CANCEL)
+                    .addComponent(ADD))
+                .addGap(23, 23, 23))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void snameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_snameActionPerformed
+
+    private void u_typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_u_typeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_u_typeActionPerformed
+
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
-        
-          dbConnector dbc = new dbConnector();
+       dbConnector dbc = new dbConnector();
         if (sdescription.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, " All Fields Require!");
         } else {
             dbc.insertData("INSERT INTO tbl_scholarship (scholarship_name,scholarship_type,scholarship_description,scholarship_status) " + "VALUES ("
-                    + "'" + scholarshipname.getSelectedItem() + "',"
-                    + " '" + scholarshiptype.getSelectedItem() + "',"
+                    + "'" + sname.getSelectedItem() + "',"
+                    + " '" + u_type.getSelectedItem() + "',"
                     + " '" + sdescription.getText() + "',"
-                    + "'" + "Pending')");
+                    + "'" + "Available')");
             scholarshippage db = new scholarshippage();
             db.setVisible(true);
             this.hide();
             db.ads = ads ;
-        }
+        }       
     }//GEN-LAST:event_ADDActionPerformed
 
-    private void scholarshipnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholarshipnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_scholarshipnameActionPerformed
-
-    private void scholarshiptypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scholarshiptypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_scholarshiptypeActionPerformed
-
     private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
-        scholarshippage  uf= new scholarshippage();
-      uf.setVisible(true);
-      this.dispose();
+        scholarshippage db = new scholarshippage();
+            db.setVisible(true);
+            this.hide();
     }//GEN-LAST:event_CANCELActionPerformed
 
     /**
@@ -300,14 +253,18 @@ public class addscholarshipform extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(upscholar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(upscholar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(upscholar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(addscholarshipform.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(upscholar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -316,7 +273,7 @@ public class addscholarshipform extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new addscholarshipform().setVisible(true);
+                new upscholar().setVisible(true);
             }
         });
     }
@@ -327,16 +284,12 @@ public class addscholarshipform extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JComboBox<String> scholarshipname;
-    public javax.swing.JComboBox<String> scholarshiptype;
     public javax.swing.JTextField sdescription;
+    public javax.swing.JComboBox<String> sname;
     public javax.swing.JTextField suid;
+    public javax.swing.JComboBox<String> u_type;
     // End of variables declaration//GEN-END:variables
 
     private void displayData() {

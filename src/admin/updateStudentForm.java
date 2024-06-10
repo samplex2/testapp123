@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import static testapp2.registrationForm.mail;
+import static testapp2.registrationForm.usname;
 
 
 /**
@@ -51,28 +54,35 @@ public class updateStudentForm extends javax.swing.JFrame {
 
     public static String gender;
 
-    public void imageUpdater(String existingFilePath, String newFilePath) {
-        File existingFile = new File(existingFilePath);
-        if (existingFile.exists()) {
-            String parentDirectory = existingFile.getParent();
-            File newFile = new File(newFilePath);
-            String newFileName = newFile.getName();
-            File updatedFile = new File(parentDirectory, newFileName);
-            existingFile.delete();
-            try {
-                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Image updated successfully.");
-            } catch (IOException e) {
-                System.out.println("Error occurred while updating the image: ");
+    
+     public boolean updateCheck(){
+    dbConnector dbc = new dbConnector();
+    try{
+        String query = "SELECT * FROM tbl_student WHERE (student_name = '"+fname.getText()+"' OR student_email = '"+email.getText()+"') AND student_id !='"+update_id.getText()+"'";
+
+            ResultSet resultSet =dbc.getData(query);
+        if(resultSet.next()){
+           mail = resultSet.getString("student_email");
+            System.out.println(""+mail);
+            if(mail.equals(email.getText())){
+                JOptionPane.showMessageDialog(null,"Email is Already Used!");
+              email.setText("");
             }
-        } else {
-            try {
-                Files.copy(selectedFile.toPath(), new File(reference).toPath(), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                System.out.println("Error on update!");
-            }
+            usname = resultSet.getString("student_name");
+            if(usname.equals(fname.getText())){
+                JOptionPane.showMessageDialog(null,"Username is Already Used!");
+              fname.setText("");
+            } 
+           usname = resultSet.getString("student_name");
+             return true;
+        }else{
+            return false;
         }
+    }catch(SQLException ex){
+        System.out.println(""+ex);
+        return false;
     }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -248,7 +258,21 @@ public class updateStudentForm extends javax.swing.JFrame {
 
     }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+ if(fname.getText().isEmpty()|| email.getText().isEmpty()|| contact.getText().isEmpty()
+            || course.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"All Fields are Required!");
+        }else{
+        
+        
+        dbConnector dbc= new dbConnector();
+       dbc.updateData("UPDATE tbl_student SET student_name='"+fname.getText()+"', student_email='"+email.getText()+"', student_course='"+course.getText()+"',"
+               + " student_contact='"+contact.getText()+"',gender='"+genders.getSelectedItem()+"',status='"+status.getSelectedItem()+"' WHERE student_id='"+update_id.getText()+"'");
+   
+             
+               studentPage uf= new studentPage();
+               uf.setVisible(true);
+               this.dispose(); 
+        }
         
     }//GEN-LAST:event_jButton4ActionPerformed
 

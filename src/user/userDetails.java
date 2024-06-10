@@ -288,9 +288,7 @@ public boolean duplicateCheck(){
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   userForm4 ud = new userForm4();
-        ud.setVisible(true);
-        this.dispose();        
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void usertypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertypeActionPerformed

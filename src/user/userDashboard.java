@@ -40,9 +40,6 @@ public class userDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        user_not = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         user2 = new javax.swing.JLabel();
         user3 = new javax.swing.JLabel();
         user1 = new javax.swing.JLabel();
@@ -63,50 +60,6 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setForeground(new java.awt.Color(255, 255, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        user_not.setBackground(new java.awt.Color(204, 255, 255));
-        user_not.setPreferredSize(new java.awt.Dimension(170, 180));
-        user_not.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                user_notMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                user_notMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                user_notMouseExited(evt);
-            }
-        });
-
-        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-menu-128.png"))); // NOI18N
-        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        jLabel9.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jLabel9.setText("Not Accesable!");
-
-        javax.swing.GroupLayout user_notLayout = new javax.swing.GroupLayout(user_not);
-        user_not.setLayout(user_notLayout);
-        user_notLayout.setHorizontalGroup(
-            user_notLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_notLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(user_notLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel9))
-                .addGap(20, 20, 20))
-        );
-        user_notLayout.setVerticalGroup(
-            user_notLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_notLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(28, 28, 28))
-        );
-
-        jPanel1.add(user_not, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, 170));
 
         user2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         user2.setText("User");
@@ -150,37 +103,36 @@ public class userDashboard extends javax.swing.JFrame {
         });
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-scholarship-64.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-reports-96.png"))); // NOI18N
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         jLabel4.setText("My Application");
 
         javax.swing.GroupLayout user_appLayout = new javax.swing.GroupLayout(user_app);
         user_app.setLayout(user_appLayout);
         user_appLayout.setHorizontalGroup(
             user_appLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(user_appLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_appLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(user_appLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_appLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_appLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(50, 50, 50))))
+                    .addComponent(jLabel4)
+                    .addGroup(user_appLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7)))
+                .addGap(20, 20, 20))
         );
         user_appLayout.setVerticalGroup(
             user_appLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, user_appLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jPanel1.add(user_app, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, 170));
+        jPanel1.add(user_app, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, 170));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 750, 540));
@@ -216,26 +168,11 @@ public class userDashboard extends javax.swing.JFrame {
        user3.setText(""+sess.getEmail());
     }//GEN-LAST:event_formWindowActivated
 
-    private void user_notMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_notMouseExited
-      user_not.setBackground(hovercolor);    
-    }//GEN-LAST:event_user_notMouseExited
-
-    private void user_notMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_notMouseEntered
-       user_not.setBackground(navcolor);    
-    }//GEN-LAST:event_user_notMouseEntered
-
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         loginform lg = new loginform();
         lg.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel10MouseClicked
-
-    private void user_notMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_notMouseClicked
- // Assuming 'userDashboard' is a container component like JFrame or JPanel
-
-// Check if the user is an admin
-
-    }//GEN-LAST:event_user_notMouseClicked
 
     private void user_appMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_user_appMouseClicked
      studentRep sp = new studentRep();
@@ -291,14 +228,11 @@ public class userDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel user1;
     public javax.swing.JLabel user2;
     public javax.swing.JLabel user3;
     private javax.swing.JPanel user_app;
-    private javax.swing.JPanel user_not;
     // End of variables declaration//GEN-END:variables
 }
