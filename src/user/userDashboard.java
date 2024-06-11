@@ -135,7 +135,7 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel1.add(user_app, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, 170));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 750, 540));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 760, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

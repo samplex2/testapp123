@@ -5,13 +5,19 @@
  */
 package user;
 
+import admin.admindashboard;
 import admin.applyscholarship;
+import admin.printform;
+import admin.updateStudentForm;
 import config.Tableprinter;
 import config.dbConnector;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 import testapp2.loginform;
 
@@ -58,6 +64,8 @@ public class studentRep extends javax.swing.JFrame {
         PRINT = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         reports = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -69,10 +77,11 @@ public class studentRep extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
         jLabel1.setText("SCHOLARSHIP STATUS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 550, 40));
 
+        jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
         jButton2.setText("BACK");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +89,16 @@ public class studentRep extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 453, 80, 30));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 80, 30));
 
         jButton3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton3.setText("REFRESH");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 63, -1, 30));
+        jButton3.setText("VIEW");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 80, 30));
 
         PRINT.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         PRINT.setText("PRINT");
@@ -93,7 +107,7 @@ public class studentRep extends javax.swing.JFrame {
                 PRINTActionPerformed(evt);
             }
         });
-        jPanel1.add(PRINT, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 63, -1, 30));
+        jPanel1.add(PRINT, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 70, 30));
 
         reports.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -104,15 +118,22 @@ public class studentRep extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 560, 340));
 
+        jButton4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton4.setText("REFRESH");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 520));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -130,13 +151,46 @@ public class studentRep extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void PRINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRINTActionPerformed
-Tableprinter tl= new Tableprinter(reports,"Reports"); 
-     tl.print();        
+ int rowIndex = reports.getSelectedRow();
+
+
+
+if (rowIndex < 0) {
+    JOptionPane.showMessageDialog(null, "Please Select an Item!");
+} else {
+    TableModel model =reports.getModel();
+    int columnCount = model.getColumnCount();
+    
+    
+    if (columnCount >= 5) {
+        printform usf = new printform();
+        
+        usf.studid.setText("" + model.getValueAt(rowIndex, 0));
+        usf.fname.setText("" + model.getValueAt(rowIndex, 1));
+        usf.scholarname.setText("" + model.getValueAt(rowIndex, 2));
+        usf.scholarid.setText("" + model.getValueAt(rowIndex, 3));
+         usf.type.setText("" + model.getValueAt(rowIndex, 4));
+          usf.status.setText("" + model.getValueAt(rowIndex, 5));
+          usf.des.setText("" + model.getValueAt(rowIndex, 6));
+           
+    
+        
+        usf.setVisible(true);
+        this.hide();
+        
+    } else {
+        JOptionPane.showMessageDialog(null, "Table does not have enough columns!");
+    }
+}
     }//GEN-LAST:event_PRINTActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
       display();
     }//GEN-LAST:event_formWindowActivated
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +234,9 @@ Tableprinter tl= new Tableprinter(reports,"Reports");
     private javax.swing.JButton PRINT;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable reports;

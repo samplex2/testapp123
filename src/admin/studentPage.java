@@ -66,7 +66,6 @@ public class studentPage extends javax.swing.JFrame {
         userstable = new javax.swing.JScrollPane();
         scholarshiptable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -187,17 +186,6 @@ public class studentPage extends javax.swing.JFrame {
         jPanel2.add(jLabel1);
         jLabel1.setBounds(20, 10, 480, 40);
 
-        jButton2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 204, 255));
-        jButton2.setText("Print");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(570, 277, 90, 60);
-
         jPanel3.setBackground(new java.awt.Color(51, 204, 255));
         jPanel3.setLayout(null);
 
@@ -289,7 +277,7 @@ if (rowIndex < 0) {
     TableModel model = scholarshiptable.getModel();
     int columnCount = model.getColumnCount();
     
-    // Ensure the table has enough columns to avoid ArrayIndexOutOfBoundsException
+
     if (columnCount >= 5) {
         updateStudentForm usf = new updateStudentForm();
         
@@ -327,40 +315,6 @@ if (rowIndex < 0) {
          
         this.dispose();
     }//GEN-LAST:event_p_addMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int rowIndex = scholarshiptable.getSelectedRow();
-
-        if(rowIndex<0){
-            JOptionPane.showMessageDialog(null,"Please Select some Item");
-        }else{
-
-            try{
-                dbConnector dbc = new dbConnector();
-                TableModel tbl = scholarshiptable.getModel();
-                ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex,0)+"'");
-                if(rs.next()){
-                    printform pf = new printform();
-                    pf.uid.setText(""+rs.getInt("u_id"));
-                    pf.fname.setText(""+rs.getString("u_fname"));
-                    pf.lname.setText(""+rs.getString("u_lname"));
-                    pf.email.setText(""+rs.getString("u_email"));
-                    pf.username.setText(""+rs.getString("u_username"));
-                    pf.usertype.setText(""+rs.getString("u_type"));
-                    pf.status.setText(""+rs.getString("u_status"));
-                    pf.image.setIcon(pf.ResizeImage(rs.getString("u_image"),null, pf.image));
-                    pf.setVisible(true);
-                    this.dispose();
-
-                    this.dispose();
-
-                }
-            }catch(SQLException ex){
-                System.out.println(""+ex);
-            }
-        }
-
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,7 +360,6 @@ if (rowIndex < 0) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel currentuser;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

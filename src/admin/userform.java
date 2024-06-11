@@ -419,14 +419,14 @@ public class userform extends javax.swing.JFrame {
                ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex,0)+"'");
             if(rs.next()){
                 printform pf = new printform();
-                pf.uid.setText(""+rs.getInt("u_id"));
+                pf.studid.setText(""+rs.getInt("u_id"));
                 pf.fname.setText(""+rs.getString("u_fname"));
-                pf.lname.setText(""+rs.getString("u_lname"));
-                pf.email.setText(""+rs.getString("u_email"));
-                pf.username.setText(""+rs.getString("u_username"));
-                pf.usertype.setText(""+rs.getString("u_type"));
-                pf.status.setText(""+rs.getString("u_status"));
-                pf.image.setIcon(pf.ResizeImage(rs.getString("u_image"),null, pf.image));
+                pf.scholarname.setText(""+rs.getString("u_lname"));
+                pf.scholarid.setText(""+rs.getString("u_email"));
+                pf.type.setText(""+rs.getString("u_username"));
+                pf.status.setText(""+rs.getString("u_type"));
+                pf.des.setText(""+rs.getString("u_status"));
+            
                 pf.setVisible(true);
                 this.dispose();
          

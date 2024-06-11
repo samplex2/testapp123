@@ -97,7 +97,7 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-menu-128.png"))); // NOI18N
         jLabel8.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel10.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Agency FB", 3, 14)); // NOI18N
         jLabel10.setText("Manage Scholarship");
 
         javax.swing.GroupLayout p_manageLayout = new javax.swing.GroupLayout(p_manage);
@@ -141,7 +141,7 @@ public class admindashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Agency FB", 3, 14)); // NOI18N
         jLabel7.setText("Manage Students");
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-student-96.png"))); // NOI18N
@@ -151,11 +151,11 @@ public class admindashboard extends javax.swing.JFrame {
         p_manage2Layout.setHorizontalGroup(
             p_manage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manage2Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(p_manage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel12))
-                .addGap(32, 32, 32))
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel7))
+                .addGap(20, 20, 20))
         );
         p_manage2Layout.setVerticalGroup(
             p_manage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +164,7 @@ public class admindashboard extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage2);
@@ -202,19 +202,22 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-medical-history-96.png"))); // NOI18N
         jLabel9.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel11.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
-        jLabel11.setText("Application Manage");
+        jLabel11.setFont(new java.awt.Font("Agency FB", 3, 14)); // NOI18N
+        jLabel11.setText("Manage Applications");
 
         javax.swing.GroupLayout p_manage3Layout = new javax.swing.GroupLayout(p_manage3);
         p_manage3.setLayout(p_manage3Layout);
         p_manage3Layout.setHorizontalGroup(
             p_manage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_manage3Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(p_manage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel9))
-                .addContainerGap(11, Short.MAX_VALUE))
+                    .addGroup(p_manage3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel11))
+                    .addGroup(p_manage3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel9)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         p_manage3Layout.setVerticalGroup(
             p_manage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +226,7 @@ public class admindashboard extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage3);
@@ -289,7 +292,7 @@ public class admindashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Agency FB", 3, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Agency FB", 3, 14)); // NOI18N
         jLabel13.setText("Manage User");
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
@@ -301,13 +304,13 @@ public class admindashboard extends javax.swing.JFrame {
         p_manage5Layout.setHorizontalGroup(
             p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_manage5Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(p_manage5Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel13)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel5)
+                .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_manage5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(36, 36, 36))
         );
         p_manage5Layout.setVerticalGroup(
             p_manage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +319,7 @@ public class admindashboard extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel1.add(p_manage5);
@@ -418,11 +421,11 @@ loginform lg = new loginform();
     }//GEN-LAST:event_p_manage5MouseClicked
 
     private void p_manage5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseEntered
-     p_manage5.setBackground(hovercolor);
+     p_manage5.setBackground(navcolor);
     }//GEN-LAST:event_p_manage5MouseEntered
 
     private void p_manage5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_manage5MouseExited
-        p_manage5.setBackground(navcolor);
+        p_manage5.setBackground(hovercolor);
     }//GEN-LAST:event_p_manage5MouseExited
 
     /**

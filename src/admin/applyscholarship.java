@@ -226,7 +226,7 @@ public class applyscholarship extends javax.swing.JFrame {
         jLabel13.setBounds(10, 130, 52, 17);
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel15.setText("Gender");
+        jLabel15.setText("Gender:");
         jPanel1.add(jLabel15);
         jLabel15.setBounds(10, 240, 130, 17);
 

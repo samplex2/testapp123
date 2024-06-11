@@ -98,6 +98,7 @@ public class upscholar extends javax.swing.JFrame {
         sstatus = new javax.swing.JComboBox<>();
         sc_id = new javax.swing.JTextField();
         sname = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -187,6 +188,9 @@ public class upscholar extends javax.swing.JFrame {
         sname.setEnabled(false);
         jPanel1.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 140, 30));
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/scholarship.jpg"))); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 490));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,7 +199,7 @@ public class upscholar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -214,7 +218,7 @@ if(sname.getText().isEmpty()|| stype.getText().isEmpty()){
                + " scholarship_description='"+sdescription.getText()+"' WHERE scholarship_id='"+sc_id.getText()+"'");
    
              
-             upscholar uf= new upscholar();
+             application uf= new application();
                uf.setVisible(true);
                this.dispose(); 
         }
@@ -288,6 +292,7 @@ if(sname.getText().isEmpty()|| stype.getText().isEmpty()){
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JTextField sc_id;
